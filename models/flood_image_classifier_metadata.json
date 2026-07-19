@@ -1,0 +1,65 @@
+{
+  "model_name": "FloodMind ResNet18 Image Classifier",
+  "architecture": "resnet18",
+  "framework": "pytorch",
+  "weights_status": "imagenet_pretrained",
+  "task": "3-class flood image classification",
+  "class_names": [
+    "Flood",
+    "Non_Flood",
+    "Unrelated"
+  ],
+  "classes": [
+    "Flood",
+    "Non_Flood",
+    "Unrelated"
+  ],
+  "class_to_idx": {
+    "Flood": 0,
+    "Non_Flood": 1,
+    "Unrelated": 2
+  },
+  "idx_to_class": {
+    "0": "Flood",
+    "1": "Non_Flood",
+    "2": "Unrelated"
+  },
+  "image_size": 224,
+  "input_size": [
+    224,
+    224
+  ],
+  "input_channels": 3,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "random_seed": 42,
+  "batch_size": 16,
+  "head_epochs": 8,
+  "fine_tune_epochs": 8,
+  "best_epoch": 10,
+  "best_validation_macro_f1": 0.9924025974025974,
+  "test_accuracy": 0.9657794676806084,
+  "test_macro_f1": 0.9658466227009468,
+  "class_counts_full_dataset": {
+    "Flood": 584,
+    "Non_Flood": 584,
+    "Unrelated": 584
+  },
+  "train_size": 1226,
+  "validation_size": 263,
+  "test_size": 263,
+  "trained_seconds": 1160.63,
+  "saved_for_streamlit_app": true,
+  "torch_version": "2.13.0+cpu",
+  "torchvision_model": "torchvision.models.resnet18"
+}

@@ -1,0 +1,94 @@
+{
+  "model_name": "FloodMind Flood Risk Predictor Regression Model",
+  "model_file": "models/flood_risk_predictor_model.pkl",
+  "model_type": "Polynomial Ridge Regression",
+  "created_at": "2026-07-09T07:26:17.488863Z",
+  "features": [
+    "rainfall",
+    "land_drainage",
+    "river_mgmt",
+    "storm_freq",
+    "dam_quality",
+    "drainage",
+    "coastal_risk"
+  ],
+  "target": "flood_probability",
+  "risk_thresholds": {
+    "Low Risk": "flood_probability < 0.45",
+    "Medium Risk": "0.45 <= flood_probability < 0.55",
+    "High Risk": "flood_probability >= 0.55"
+  },
+  "ui_mapping": {
+    "feature_order": [
+      "rainfall",
+      "land_drainage",
+      "river_mgmt",
+      "storm_freq",
+      "dam_quality",
+      "drainage",
+      "coastal_risk"
+    ],
+    "target": "flood_probability",
+    "ui_to_feature_mapping": {
+      "Rainfall Level": "rainfall",
+      "Weather getting worse?": "storm_freq",
+      "Area Type": "land_drainage",
+      "Distance to coast": "coastal_risk",
+      "River control": "river_mgmt",
+      "Dam condition": "dam_quality",
+      "Drainage quality": "drainage"
+    },
+    "feature_to_ui_mapping": {
+      "rainfall": "Rainfall Level",
+      "storm_freq": "Weather getting worse?",
+      "land_drainage": "Area Type",
+      "coastal_risk": "Distance to coast",
+      "river_mgmt": "River control",
+      "dam_quality": "Dam condition",
+      "drainage": "Drainage quality"
+    },
+    "slider_index_to_quantile_strategy": {
+      "0": "q05 / safest-lowest option",
+      "1": "q25 / moderate-low option",
+      "2": "q75 / moderate-high option",
+      "3": "q95 / highest/unknown-risk option"
+    }
+  },
+  "metrics": {
+    "created_at": "2026-07-09T07:26:17.488863Z",
+    "dataset_rows_after_cleaning": 1066034,
+    "train_rows": 852827,
+    "test_rows": 213207,
+    "feature_count": 7,
+    "target": "flood_probability",
+    "model_type": "PolynomialFeatures(degree=2) + Ridge Regression",
+    "regression": {
+      "mae": 0.03566595911979675,
+      "rmse": 0.04416322456626424,
+      "r2_score": 0.2560592293739319,
+      "target_mean": 0.504546046257019,
+      "target_std": 0.05123899132013321,
+      "target_min": 0.2849999964237213,
+      "target_max": 0.7250000238418579,
+      "prediction_min": 0.3954610228538513,
+      "prediction_max": 0.6656848192214966
+    },
+    "risk_band_thresholds": {
+      "Low Risk": "flood_probability < 0.45",
+      "Medium Risk": "0.45 <= flood_probability < 0.55",
+      "High Risk": "flood_probability >= 0.55"
+    },
+    "risk_band_classification": {
+      "accuracy": 0.6844475087590933,
+      "balanced_accuracy": 0.3905243041502988,
+      "macro_f1": 0.3831025501373571,
+      "weighted_f1": 0.5997775533033617
+    }
+  },
+  "notes": [
+    "This model predicts flood_probability as a decimal from 0 to 1.",
+    "The current dataset contains processed/scaled feature values.",
+    "The model is designed for the Flood Risk Predictor page, not Image Analysis or Chatbot.",
+    "Retrain locally with the included script to avoid scikit-learn version mismatch warnings."
+  ]
+}

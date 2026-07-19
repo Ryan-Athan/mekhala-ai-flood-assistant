@@ -1,0 +1,157 @@
+{
+  "flood_event": {
+    "answer_en": "If flooding is happening now, move to higher ground immediately, avoid floodwater, and follow official evacuation instructions. Do not walk, swim, or drive through floodwater because depth and current can be dangerous and roads may be damaged underneath.",
+    "answer_my": "အခု ရေကြီးနေပါက မြင့်သောနေရာသို့ ချက်ချင်းရွှေ့ပါ။ ရေကြီးရေထဲ လမ်းလျှောက်ခြင်း၊ ရေကူးခြင်း၊ ကားဖြင့်ဖြတ်ခြင်း မလုပ်ပါနှင့်။ ရေအနက်၊ ရေစီးကြောင်းနှင့် လမ်းပျက်စီးမှုများကြောင့် အန္တရာယ်ရှိနိုင်ပါတယ်။ တာဝန်ရှိသူများ၏ ထွက်ခွာရန်ညွှန်ကြားချက်ကို လိုက်နာပါ။",
+    "urgency": "high",
+    "source_ids": [
+      "ready_floods",
+      "nws_tadd",
+      "nws_flood_safety"
+    ]
+  },
+  "flood_causes": {
+    "answer_en": "Floods can be caused by heavy rainfall, river overflow, blocked drainage, storm surge, dam or levee problems, saturated soil, low-lying land, deforestation, and poor urban planning. In cities, blocked drains and too much concrete can make rainwater collect quickly.",
+    "answer_my": "ရေကြီးမှုဖြစ်ရခြင်း၏ အကြောင်းရင်းများမှာ မိုးသည်းထန်ခြင်း၊ မြစ်ရေတက်ခြင်း၊ ရေမြောင်းပိတ်ခြင်း၊ မုန်တိုင်းရေလှိုင်း၊ တမံ/ကမ်းပါးပြဿနာ၊ မြေဆီလွှာရေပြည့်ခြင်း၊ နိမ့်သောမြေပြင်၊ သစ်တောပြုန်းတီးခြင်းနှင့် မြို့ပြစီမံကိန်းမကောင်းခြင်းတို့ ဖြစ်နိုင်ပါတယ်။ မြို့ပြတွင် ရေမြောင်းပိတ်ခြင်းနှင့် ကွန်ကရစ်ဧရိယာများလွန်းခြင်းကြောင့် မိုးရေစုဆောင်းမှုမြန်နိုင်ပါတယ်။",
+    "urgency": "low",
+    "source_ids": [
+      "nws_flood_safety",
+      "ready_floods"
+    ]
+  },
+  "weather_warning": {
+    "answer_en": "Flood warning signs include intense or continuous rain, rapidly rising streams or drains, water covering roads, official flood watches or warnings, and reports of upstream flooding. If you receive a warning, prepare to move quickly and avoid low-lying routes.",
+    "answer_my": "ရေကြီးနိုင်သည့် သတိပေးလက္ခဏာများမှာ မိုးသည်းထန်ခြင်း/အချိန်ကြာမိုးရွာခြင်း၊ ချောင်း/ရေမြောင်းရေမြန်မြန်တက်ခြင်း၊ လမ်းပေါ်ရေဖုံးခြင်း၊ တရားဝင် flood watch/warning ထုတ်ပြန်ခြင်းနှင့် အထက်ပိုင်းရေကြီးသတင်းများ ဖြစ်ပါတယ်။ သတိပေးချက်ရပါက အမြန်ရွှေ့နိုင်ရန် ပြင်ဆင်ပြီး နိမ့်သောလမ်းများကို ရှောင်ပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_floods",
+      "nws_flood_safety"
+    ]
+  },
+  "storm_weather": {
+    "answer_en": "During heavy rain or storms, stay indoors if safe, keep away from flooded streets and drainage channels, and prepare to move if water rises. Heavy rain can cause flash flooding quickly, especially in low-lying or poorly drained areas.",
+    "answer_my": "မိုးသည်း/မုန်တိုင်းအချိန်တွင် ဘေးကင်းပါက အိမ်တွင်းနေပါ။ ရေမြုပ်လမ်းများ၊ ရေမြောင်းများ၊ ချောင်းများအနီး မသွားပါနှင့်။ ရေတက်လာပါက အမြန်ရွှေ့ရန် ပြင်ဆင်ထားပါ။ နိမ့်မြေ သို့မဟုတ် ရေစီးရေလာမကောင်းသောနေရာများတွင် ရုတ်တရက်ရေကြီးနိုင်ပါတယ်။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_floods",
+      "nws_flood_safety"
+    ]
+  },
+  "water_supply": {
+    "answer_en": "Floodwater may contain sewage, chemicals, debris, and germs. Use bottled, boiled, or officially treated water for drinking and food preparation. Wash hands often, and clean any wound that touches floodwater.",
+    "answer_my": "ရေကြီးရေထဲတွင် မစင်ရေ၊ ဓာတုပစ္စည်း၊ အမှိုက်အကြွင်းအကျန်နှင့် ပိုးမွှားများ ပါနိုင်ပါတယ်။ သောက်ရန်နှင့် အစားအစာပြင်ရန် bottled water၊ ဆူအောင်ကျိုထားသောရေ သို့မဟုတ် တရားဝင်သန့်စင်ထားသောရေကို အသုံးပြုပါ။ လက်ကို မကြာခဏဆေးပြီး ဒဏ်ရာသည် ရေကြီးရေနှင့်ထိပါက သန့်ရှင်းအောင်ဆေးပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "cdc_floodwater",
+      "ready_kit"
+    ]
+  },
+  "food_supply": {
+    "answer_en": "Prepare an emergency kit with drinking water, ready-to-eat food, flashlight, extra batteries, power bank, first-aid kit, medicines, hygiene items, important documents, cash, and basic clothing. Keep the kit in a waterproof bag if possible.",
+    "answer_my": "အရေးပေါ်အိတ်ထဲတွင် သောက်ရေ၊ ချက်ရန်မလိုသောအစားအစာ၊ မီးလင်းတိုင်၊ ဘက်ထရီအပို၊ power bank၊ first-aid kit၊ ဆေးဝါး၊ သန့်ရှင်းရေးပစ္စည်း၊ အရေးကြီးစာရွက်စာတမ်း၊ ငွေသားနှင့် အဝတ်အစားအနည်းငယ် ထည့်ထားပါ။ ဖြစ်နိုင်ပါက waterproof bag ထဲထားပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_kit",
+      "ready_floods"
+    ]
+  },
+  "shelter_evacuation": {
+    "answer_en": "Evacuate immediately if authorities tell you to leave, if water is rising near your home, or if your route may soon be blocked. Move to higher ground or an official shelter. Lock your home if time allows, but do not delay evacuation to collect belongings.",
+    "answer_my": "တာဝန်ရှိသူများက ထွက်ခွာရန်ပြောပါက၊ အိမ်အနီးရေတက်လာပါက သို့မဟုတ် လမ်းကြောင်းပိတ်နိုင်ပါက ချက်ချင်းထွက်ခွာပါ။ မြင့်သောနေရာ သို့မဟုတ် တရားဝင်ဘေးကင်းရေးစခန်းသို့ သွားပါ။ အချိန်ရှိပါက အိမ်ကိုပိတ်ထားနိုင်သော်လည်း ပစ္စည်းယူရန်အတွက် ထွက်ခွာမှုကို မနှောင့်နှေးပါနှင့်။",
+    "urgency": "high",
+    "source_ids": [
+      "ready_floods",
+      "nws_flood_safety"
+    ]
+  },
+  "medical_help": {
+    "answer_en": "Floodwater can expose people to germs, chemicals, sharp objects, and electrical hazards. Clean wounds with safe water, cover them, and seek medical help if there is deep injury, fever, increasing pain, redness, swelling, or signs of infection.",
+    "answer_my": "ရေကြီးရေထဲတွင် ပိုးမွှား၊ ဓာတုပစ္စည်း၊ ချွန်ထက်သောအရာများနှင့် လျှပ်စစ်အန္တရာယ်များ ရှိနိုင်ပါတယ်။ ဒဏ်ရာကို သန့်သောရေနှင့်ဆေးပြီး ဖုံးအုပ်ထားပါ။ ဒဏ်ရာနက်ခြင်း၊ ဖျားခြင်း၊ နာကျင်မှုပိုလာခြင်း၊ နီခြင်း၊ ဖောင်းခြင်း သို့မဟုတ် ပိုးဝင်သည့်လက္ခဏာရှိပါက ဆေးဘက်ဆိုင်ရာအကူအညီယူပါ။",
+    "urgency": "high",
+    "source_ids": [
+      "cdc_floodwater",
+      "ready_kit"
+    ]
+  },
+  "search_and_rescue": {
+    "answer_en": "If someone is trapped or in immediate danger, contact local emergency services immediately. Move to the highest safe place, signal your location, conserve phone battery, and do not enter moving floodwater to attempt a rescue unless you are trained and equipped.",
+    "answer_my": "တစ်ယောက်ယောက် ပိတ်မိနေခြင်း သို့မဟုတ် ချက်ချင်းအန္တရာယ်ရှိနေပါက ဒေသခံအရေးပေါ်ဝန်ဆောင်မှုကို ချက်ချင်းဆက်သွယ်ပါ။ ဘေးကင်းသော အမြင့်ဆုံးနေရာသို့ ရွှေ့ပြီး တည်နေရာကို အချက်ပြပါ။ ဖုန်းဘက်ထရီကို ချွေတာပါ။ သင်သည် သင်တန်းနှင့်ကိရိယာမရှိပါက ရေစီးပြင်းသောရေထဲဝင်ပြီး ကယ်ဆယ်ရန် မကြိုးစားပါနှင့်။",
+    "urgency": "critical",
+    "source_ids": [
+      "ready_floods",
+      "nws_flood_safety"
+    ]
+  },
+  "road_transport": {
+    "answer_en": "Do not drive or walk through flooded roads. Water may be deeper or faster than it looks, and the road surface may be washed out. Turn around and choose another route, even if other vehicles seem to pass.",
+    "answer_my": "ရေမြုပ်နေသောလမ်းကို ကားဖြင့်ဖြတ်ခြင်း သို့မဟုတ် လမ်းလျှောက်ဖြတ်ခြင်း မလုပ်ပါနှင့်။ ရေသည် မြင်ရသလောက်မဟုတ်ဘဲ ပိုနက်/ပိုမြန်နိုင်ပြီး လမ်းအောက်ပိုင်းပျက်စီးနေနိုင်ပါတယ်။ အခြားကားများဖြတ်နိုင်သလိုမြင်ရသော်လည်း ပြန်လှည့်ပြီး အခြားလမ်းရွေးပါ။",
+    "urgency": "high",
+    "source_ids": [
+      "nws_tadd",
+      "ready_floods"
+    ]
+  },
+  "infrastructure_damage": {
+    "answer_en": "After flooding, buildings, bridges, roads, gas lines, and electrical systems may be damaged. Return home only when authorities say it is safe. Watch for structural cracks, loose wires, gas smells, and contaminated mud or debris.",
+    "answer_my": "ရေကြီးပြီးနောက် အဆောက်အအုံ၊ တံတား၊ လမ်း၊ ဓာတ်ငွေ့ပိုက်နှင့် လျှပ်စစ်စနစ်များ ပျက်စီးနိုင်ပါတယ်။ တာဝန်ရှိသူများက ဘေးကင်းကြောင်းပြောမှ အိမ်ပြန်ပါ။ အဆောက်အအုံကွဲခြင်း၊ ဝိုင်ယာကြိုးလွတ်ခြင်း၊ ဓာတ်ငွေ့နံ့၊ မသန့်သောရွှံ့/အမှိုက်များကို သတိထားပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "cdc_reenter_home",
+      "epa_cleanup",
+      "cdc_cleanup"
+    ]
+  },
+  "electricity_safety": {
+    "answer_en": "Floodwater and electricity are a deadly combination. Do not touch electrical equipment, switches, outlets, or wires while wet or standing in water. If power must be turned off, ask qualified personnel or the power company when possible.",
+    "answer_my": "ရေကြီးရေနှင့် လျှပ်စစ်သည် အသက်အန္တရာယ်ရှိနိုင်ပါတယ်။ ကိုယ်စိုနေချိန် သို့မဟုတ် ရေထဲရပ်နေချိန်တွင် လျှပ်စစ်ကိရိယာ၊ switch၊ socket၊ ဝိုင်ယာကြိုးများကို မထိပါနှင့်။ မီးပိတ်ရန်လိုပါက ဖြစ်နိုင်သမျှ ကျွမ်းကျင်သူ သို့မဟုတ် လျှပ်စစ်ကုမ္ပဏီကို ဆက်သွယ်ပါ။",
+    "urgency": "high",
+    "source_ids": [
+      "cdc_reenter_home"
+    ]
+  },
+  "after_flood_cleanup": {
+    "answer_en": "After a flood, return only when officials say it is safe. Wear boots, gloves, and a mask if cleaning. Remove standing water if safe, air out the building, and dry wet areas as quickly as possible to reduce mold. Throw away items that cannot be cleaned and dried safely.",
+    "answer_my": "ရေကြီးပြီးနောက် တာဝန်ရှိသူများက ဘေးကင်းကြောင်းပြောမှ အိမ်ပြန်ပါ။ သန့်ရှင်းရေးလုပ်ပါက ဖိနပ်၊ လက်အိတ်နှင့် mask အသုံးပြုပါ။ ဘေးကင်းပါက ရေတင်ကျန်မှုကို ဖယ်ရှားပြီး အိမ်ကိုလေဝင်လေထွက်ကောင်းအောင်လုပ်ပါ။ မှိုမပေါက်စေရန် စိုနေသောနေရာများကို အမြန်ခြောက်အောင်လုပ်ပါ။ သန့်ရှင်း၍ခြောက်အောင်မလုပ်နိုင်သောပစ္စည်းများကို စွန့်ပစ်ပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "cdc_cleanup",
+      "cdc_reenter_home",
+      "epa_cleanup"
+    ]
+  },
+  "protect_home": {
+    "answer_en": "Before flooding, move valuables and documents to higher shelves, clear drains where safe, prepare sandbags or barriers if available, unplug appliances if advised and safe, and keep an emergency kit ready. Know your evacuation route before water rises.",
+    "answer_my": "ရေမကြီးမီ တန်ဖိုးရှိပစ္စည်းနှင့်စာရွက်စာတမ်းများကို မြင့်သောနေရာသို့ရွှေ့ပါ။ ဘေးကင်းပါက ရေမြောင်းများရှင်းပါ။ ရရှိနိုင်ပါက sandbag/barrier ပြင်ဆင်ပါ။ ဘေးကင်းပြီး အကြံပြုချက်ရှိပါက လျှပ်စစ်ပစ္စည်းများကို plug ဖြုတ်ပါ။ အရေးပေါ်အိတ်ပြင်ထားပြီး ရေမတက်မီ ထွက်ခွာလမ်းကြောင်းသိထားပါ။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_floods",
+      "ready_kit"
+    ]
+  },
+  "security_services": {
+    "answer_en": "During a flood, follow instructions from emergency services, police, local authorities, and weather agencies. Report blocked roads, trapped people, downed wires, or damaged bridges through official emergency channels. Avoid spreading unverified information.",
+    "answer_my": "ရေကြီးချိန်တွင် အရေးပေါ်ဝန်ဆောင်မှု၊ ရဲ၊ ဒေသခံအာဏာပိုင်နှင့် မိုးလေဝသဌာနများ၏ ညွှန်ကြားချက်ကို လိုက်နာပါ။ လမ်းပိတ်ခြင်း၊ ပိတ်မိနေသူ၊ ဝိုင်ယာကြိုးကျခြင်း၊ တံတားပျက်ခြင်းတို့ကို တရားဝင်အရေးပေါ်လမ်းကြောင်းမှ အကြောင်းကြားပါ။ အတည်မပြုနိုင်သောသတင်းများ မဖြန့်ပါနှင့်။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_floods",
+      "nws_flood_safety"
+    ]
+  },
+  "general_aid_request": {
+    "answer_en": "I can help with flood safety, evacuation, emergency kits, road safety, medical concerns, and cleanup. If you are in immediate danger, contact local emergency services first. Tell me what is happening: rising water, trapped people, flooded road, medical issue, or preparation question?",
+    "answer_my": "ရေကြီးဘေးကင်းရေး၊ ထွက်ခွာခြင်း၊ အရေးပေါ်အိတ်၊ လမ်းဘေးကင်းရေး၊ ဆေးဘက်ဆိုင်ရာပြဿနာနှင့် သန့်ရှင်းရေးအကြောင်း ကူညီနိုင်ပါတယ်။ ချက်ချင်းအန္တရာယ်ရှိပါက ဒေသခံအရေးပေါ်ဝန်ဆောင်မှုကို အရင်ဆက်သွယ်ပါ။ ဘာဖြစ်နေသလဲ ပြောပါ—ရေတက်နေသလား၊ လူပိတ်မိနေသလား၊ လမ်းရေမြုပ်နေသလား၊ ဆေးဘက်ဆိုင်ရာပြဿနာလား၊ ပြင်ဆင်ရေးမေးခွန်းလား။",
+    "urgency": "medium",
+    "source_ids": [
+      "ready_floods",
+      "ready_kit",
+      "nws_flood_safety"
+    ]
+  },
+  "fallback": {
+    "answer_en": "I may not have understood the question clearly. I can help with flood causes, flood warnings, evacuation, emergency kits, road safety, electricity safety, medical help, and cleanup. Please ask again with a little more detail.",
+    "answer_my": "မေးခွန်းကို ရှင်းရှင်းလင်းလင်း မနားလည်နိုင်သေးပါ။ ရေကြီးရခြင်းအကြောင်းရင်း၊ သတိပေးချက်၊ ထွက်ခွာခြင်း၊ အရေးပေါ်အိတ်၊ လမ်းဘေးကင်းရေး၊ လျှပ်စစ်ဘေးကင်းရေး၊ ဆေးဘက်ဆိုင်ရာအကူအညီနှင့် သန့်ရှင်းရေးတို့ကို ကူညီနိုင်ပါတယ်။ နည်းနည်းပိုအသေးစိတ် ပြန်မေးပေးပါ။",
+    "urgency": "low",
+    "source_ids": [
+      "ready_floods"
+    ]
+  }
+}

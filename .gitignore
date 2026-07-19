@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Streamlit / local config
+.streamlit/secrets.toml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data files - keep source code clean
+data/raw/
+data/processed/
+data/splits/
+data/rag/
+data/multilingual_tests/
+
+# Reports / generated outputs
+reports/
+*.csv
+*.xlsx
+*.xls
+
+# Large datasets
+*.zip
+*.rar
+*.7z
+
+# ML model files - upload separately or use Git LFS
+models/*.pth
+models/*.pt
+models/*.pkl
+models/*.h5
+models/*.joblib
+
+# Keep empty folders if needed
+!models/.gitkeep
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/splits/.gitkeep
+!reports/.gitkeep
+
+# Temporary files
+tempCodeRunnerFile.*
+*.log
+
+# Report writer logs
+*Training and Evaluation Log.txt

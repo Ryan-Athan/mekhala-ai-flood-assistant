@@ -1,0 +1,110 @@
+{
+  "mapping_type": "priority-based multi-label to single chatbot intent mapping",
+  "intent_rules": [
+    {
+      "intent": "search_and_rescue",
+      "description": "Search, rescue, missing people, trapped people, and urgent rescue support.",
+      "dataset_labels": [
+        "search_and_rescue",
+        "missing_people"
+      ]
+    },
+    {
+      "intent": "medical_help",
+      "description": "Medical help, medicine, hospital access, injury, death, and health-related needs.",
+      "dataset_labels": [
+        "medical_help",
+        "medical_products",
+        "hospitals",
+        "death"
+      ]
+    },
+    {
+      "intent": "water_supply",
+      "description": "Requests or reports about clean water, drinking water, and sanitation needs.",
+      "dataset_labels": [
+        "water"
+      ]
+    },
+    {
+      "intent": "food_supply",
+      "description": "Food shortage, food aid, and basic nutrition support messages.",
+      "dataset_labels": [
+        "food"
+      ]
+    },
+    {
+      "intent": "shelter_evacuation",
+      "description": "Shelter, temporary housing, displacement, evacuation, and refugee support.",
+      "dataset_labels": [
+        "shelter",
+        "refugees"
+      ]
+    },
+    {
+      "intent": "road_transport",
+      "description": "Transport disruption, road access, blocked roads, vehicles, and route safety.",
+      "dataset_labels": [
+        "transport"
+      ]
+    },
+    {
+      "intent": "infrastructure_damage",
+      "description": "Damage to buildings, drainage, bridges, electricity, and infrastructure systems.",
+      "dataset_labels": [
+        "buildings",
+        "electricity",
+        "infrastructure_related",
+        "other_infrastructure"
+      ]
+    },
+    {
+      "intent": "security_services",
+      "description": "Security, military, aid centers, shops, tools, and public service coordination.",
+      "dataset_labels": [
+        "security",
+        "military",
+        "aid_centers",
+        "shops",
+        "tools"
+      ]
+    },
+    {
+      "intent": "flood_event",
+      "description": "Flood-specific messages, flood impact, river overflow, and water inundation reports.",
+      "dataset_labels": [
+        "floods"
+      ]
+    },
+    {
+      "intent": "storm_weather",
+      "description": "Storm, hurricane, cyclone, and severe weather event messages.",
+      "dataset_labels": [
+        "storm"
+      ]
+    },
+    {
+      "intent": "weather_warning",
+      "description": "General weather hazard, earthquake, cold, fire, or other weather-related alerts.",
+      "dataset_labels": [
+        "weather_related",
+        "other_weather",
+        "cold",
+        "fire",
+        "earthquake"
+      ]
+    },
+    {
+      "intent": "general_aid_request",
+      "description": "General help requests, aid-related reports, and direct disaster reports.",
+      "dataset_labels": [
+        "request",
+        "aid_related",
+        "other_aid",
+        "direct_report",
+        "related"
+      ]
+    }
+  ],
+  "fallback_intent": "general_aid_request"
+}

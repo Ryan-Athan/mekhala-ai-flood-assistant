@@ -1,0 +1,123 @@
+{
+  "project": "FloodMind / AI Flood Assistant",
+  "step": "Step 2 - Flood/Disaster Intent Classifier Training",
+  "created_at": "2026-07-19T05:13:52.656317Z",
+  "dataset_source": "Kaggle Disaster Response Messages dataset after Step 1 cleaning",
+  "training_data": "D:/University Of Computer Studies(NUCS)/First SEMS/Artificial Intelligence/Group Project Assignment/floodmind - V2/data/processed/flood_intent_training_data.csv",
+  "input_column": "message_clean",
+  "target_column": "primary_intent",
+  "model_type": "TF-IDF + LinearSVC intent classifier",
+  "vectorizer": "TfidfVectorizer with 1-2 word ngrams, max_features=30000, sublinear_tf=True",
+  "classifier": "LinearSVC(class_weight='balanced', max_iter=5000)",
+  "total_rows": 15854,
+  "train_rows": 12683,
+  "test_rows": 3171,
+  "intent_count": 12,
+  "intents": [
+    "flood_event",
+    "food_supply",
+    "general_aid_request",
+    "infrastructure_damage",
+    "medical_help",
+    "road_transport",
+    "search_and_rescue",
+    "security_services",
+    "shelter_evacuation",
+    "storm_weather",
+    "water_supply",
+    "weather_warning"
+  ],
+  "metrics": {
+    "accuracy": 0.5658,
+    "balanced_accuracy": 0.558,
+    "macro_f1": 0.5383,
+    "weighted_f1": 0.5618
+  },
+  "per_class_metrics": [
+    {
+      "intent": "flood_event",
+      "precision": 0.4186,
+      "recall": 0.5047,
+      "f1_score": 0.4576,
+      "support": 107
+    },
+    {
+      "intent": "food_supply",
+      "precision": 0.7195,
+      "recall": 0.7492,
+      "f1_score": 0.7341,
+      "support": 315
+    },
+    {
+      "intent": "general_aid_request",
+      "precision": 0.5432,
+      "recall": 0.4991,
+      "f1_score": 0.5202,
+      "support": 529
+    },
+    {
+      "intent": "infrastructure_damage",
+      "precision": 0.3373,
+      "recall": 0.2872,
+      "f1_score": 0.3102,
+      "support": 195
+    },
+    {
+      "intent": "medical_help",
+      "precision": 0.6679,
+      "recall": 0.5315,
+      "f1_score": 0.592,
+      "support": 666
+    },
+    {
+      "intent": "road_transport",
+      "precision": 0.5222,
+      "recall": 0.5732,
+      "f1_score": 0.5465,
+      "support": 82
+    },
+    {
+      "intent": "search_and_rescue",
+      "precision": 0.44,
+      "recall": 0.3022,
+      "f1_score": 0.3583,
+      "support": 182
+    },
+    {
+      "intent": "security_services",
+      "precision": 0.5,
+      "recall": 0.5727,
+      "f1_score": 0.5339,
+      "support": 110
+    },
+    {
+      "intent": "shelter_evacuation",
+      "precision": 0.5162,
+      "recall": 0.5977,
+      "f1_score": 0.554,
+      "support": 266
+    },
+    {
+      "intent": "storm_weather",
+      "precision": 0.5078,
+      "recall": 0.7104,
+      "f1_score": 0.5923,
+      "support": 183
+    },
+    {
+      "intent": "water_supply",
+      "precision": 0.5188,
+      "recall": 0.6139,
+      "f1_score": 0.5624,
+      "support": 202
+    },
+    {
+      "intent": "weather_warning",
+      "precision": 0.6495,
+      "recall": 0.7545,
+      "f1_score": 0.6981,
+      "support": 334
+    }
+  ],
+  "important_note": "The original dataset is multi-label. This classifier uses priority rules to convert multi-label disaster categories into one chatbot routing intent."
+}

@@ -1,0 +1,19 @@
+{
+  "flood_event": "flood_event",
+  "storm_weather": "storm_weather",
+  "weather_warning": "weather_warning",
+  "water_supply": "water_supply",
+  "food_supply": "food_supply",
+  "shelter_evacuation": "shelter_evacuation",
+  "medical_help": "medical_help",
+  "search_and_rescue": "search_and_rescue",
+  "road_transport": "road_transport",
+  "infrastructure_damage": "infrastructure_damage",
+  "security_services": "security_services",
+  "general_aid_request": "general_aid_request",
+  "flood_causes": "flood_causes",
+  "electricity_safety": "electricity_safety",
+  "after_flood_cleanup": "after_flood_cleanup",
+  "protect_home": "protect_home",
+  "fallback": "fallback"
+}

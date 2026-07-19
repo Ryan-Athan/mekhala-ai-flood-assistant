@@ -1,0 +1,107 @@
+{
+  "en": {
+    "name": "English",
+    "native": "English",
+    "translator_code": "en",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "my": {
+    "name": "Burmese",
+    "native": "မြန်မာ",
+    "translator_code": "my",
+    "script": "Myanmar",
+    "direction": "ltr"
+  },
+  "th": {
+    "name": "Thai",
+    "native": "ไทย",
+    "translator_code": "th",
+    "script": "Thai",
+    "direction": "ltr"
+  },
+  "zh-CN": {
+    "name": "Chinese Simplified",
+    "native": "简体中文",
+    "translator_code": "zh-CN",
+    "script": "Han",
+    "direction": "ltr"
+  },
+  "hi": {
+    "name": "Hindi",
+    "native": "हिन्दी",
+    "translator_code": "hi",
+    "script": "Devanagari",
+    "direction": "ltr"
+  },
+  "bn": {
+    "name": "Bengali",
+    "native": "বাংলা",
+    "translator_code": "bn",
+    "script": "Bengali",
+    "direction": "ltr"
+  },
+  "id": {
+    "name": "Indonesian",
+    "native": "Bahasa Indonesia",
+    "translator_code": "id",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "vi": {
+    "name": "Vietnamese",
+    "native": "Tiếng Việt",
+    "translator_code": "vi",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "ja": {
+    "name": "Japanese",
+    "native": "日本語",
+    "translator_code": "ja",
+    "script": "Japanese",
+    "direction": "ltr"
+  },
+  "ko": {
+    "name": "Korean",
+    "native": "한국어",
+    "translator_code": "ko",
+    "script": "Hangul",
+    "direction": "ltr"
+  },
+  "fr": {
+    "name": "French",
+    "native": "Français",
+    "translator_code": "fr",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "es": {
+    "name": "Spanish",
+    "native": "Español",
+    "translator_code": "es",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "ar": {
+    "name": "Arabic",
+    "native": "العربية",
+    "translator_code": "ar",
+    "script": "Arabic",
+    "direction": "rtl"
+  },
+  "de": {
+    "name": "German",
+    "native": "Deutsch",
+    "translator_code": "de",
+    "script": "Latin",
+    "direction": "ltr"
+  },
+  "ms": {
+    "name": "Malay",
+    "native": "Bahasa Melayu",
+    "translator_code": "ms",
+    "script": "Latin",
+    "direction": "ltr"
+  }
+}

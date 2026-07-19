@@ -1,0 +1,17 @@
+{
+  "class_names": [
+    "Flood",
+    "Non_Flood",
+    "Unrelated"
+  ],
+  "class_to_idx": {
+    "Flood": 0,
+    "Non_Flood": 1,
+    "Unrelated": 2
+  },
+  "idx_to_class": {
+    "0": "Flood",
+    "1": "Non_Flood",
+    "2": "Unrelated"
+  }
+}

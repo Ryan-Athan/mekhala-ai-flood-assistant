@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --bg-light: #bde2f1;
+        --bg-mid: #82c8e5;
+        --bg-dark: #47aed9;
+        --navy: #003152;
+        --navy-soft: rgba(0, 49, 82, 0.74);
+        --white: #fafafa;
+        --glass: rgba(255, 255, 255, 0.24);
+        --glass-inner: rgba(255, 255, 255, 0.31);
+        --border: rgba(255, 255, 255, 0.45);
+        --blue: #34b9df;
+        --red: #b42f31;
+        --red-light: #ee8c8e;
+        --yellow: #e2ba38;
+        --yellow-light: #eed78c;
+        --yellow-dark: #9b7804;
+        --green: #049b41;
+        --green-light: #8ceeb4;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Display",
+          "Segoe UI",
+          sans-serif;
+        color: var(--navy);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .fm-sim-main-card {
+        width: 100%;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        backdrop-filter: blur(22px) saturate(185%);
+        -webkit-backdrop-filter: blur(22px) saturate(185%);
+        box-shadow: 0 12px 36px rgba(0, 49, 82, 0.055);
+        padding: 22px 22px 16px 22px;
+      }
+
+      .fm-card-title {
+        margin: 0 0 14px 0;
+        color: var(--navy);
+        font-size: 21px;
+        font-weight: 950;
+        line-height: 1.1;
+        letter-spacing: -0.25px;
+      }
+
+      .fm-card-desc {
+        margin: 0 0 15px 0;
+        color: var(--navy-soft);
+        font-size: 13px;
+        font-weight: 720;
+        line-height: 1.62;
+      }
+
+      .fm-sim-section {
+        margin: 0 0 11px 0;
+        padding: 17px 22px 15px 22px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 20px rgba(0, 49, 82, 0.035);
+      }
+
+      .fm-sim-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .fm-section-title {
+        margin: 0 0 22px 0;
+        color: var(--navy);
+        font-size: 18px;
+        font-weight: 950;
+        letter-spacing: -0.2px;
+        line-height: 1.1;
+      }
+
+      .fm-control {
+        margin: 0 0 25px 0;
+      }
+
+      .fm-control:last-child {
+        margin-bottom: 0;
+      }
+
+      .fm-control-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .fm-control-label {
+        color: var(--navy);
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.15;
+      }
+
+      .fm-chip {
+        min-width: 52px;
+        text-align: center;
+        padding: 7px 10px;
+        border-radius: 7px;
+        font-size: 12px;
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .fm-chip-red {
+        background: var(--red-light);
+        color: var(--red);
+      }
+
+      .fm-chip-yellow {
+        background: var(--yellow-light);
+        color: var(--yellow-dark);
+      }
+
+      .fm-chip-green {
+        background: var(--green-light);
+        color: var(--green);
+      }
+
+      .fm-chip-white {
+        background: rgba(250, 250, 250, 0.88);
+        color: rgba(0, 49, 82, 0.48);
+      }
+
+      .fm-range-wrap {
+        position: relative;
+        height: 18px;
+        margin: 0 0 1px 0;
+      }
+
+      .fm-range {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 18px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border: none;
+      }
+
+      .fm-range::-webkit-slider-runnable-track {
+        height: 4px;
+        border-radius: 999px;
+        background: transparent;
+        border: none;
+      }
+
+      .fm-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 13px;
+        height: 13px;
+        border-radius: 999px;
+        background: var(--navy);
+        border: 2px solid rgba(255, 255, 255, 0.55);
+        box-shadow: 0 3px 10px rgba(0, 49, 82, 0.22);
+        margin-top: -4.5px;
+        cursor: grab;
+      }
+
+      .fm-range:active::-webkit-slider-thumb {
+        cursor: grabbing;
+        transform: scale(1.05);
+      }
+
+      .fm-range::-moz-range-track {
+        height: 4px;
+        border-radius: 999px;
+        background: transparent;
+        border: none;
+      }
+
+      .fm-range::-moz-range-progress {
+        height: 4px;
+        border-radius: 999px;
+        background: var(--blue);
+        box-shadow: 0 0 10px rgba(52, 185, 223, 0.34);
+      }
+
+      .fm-range::-moz-range-thumb {
+        width: 13px;
+        height: 13px;
+        border-radius: 999px;
+        background: var(--navy);
+        border: 2px solid rgba(255, 255, 255, 0.55);
+        box-shadow: 0 3px 10px rgba(0, 49, 82, 0.22);
+        cursor: grab;
+      }
+
+      .fm-ticks {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin: 0;
+      }
+
+      .fm-ticks span {
+        color: rgba(0, 49, 82, 0.7);
+        font-size: 10.5px;
+        font-weight: 760;
+        line-height: 1.22;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .fm-ticks span:hover {
+        color: var(--navy);
+      }
+
+      .fm-component-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 14px;
+        width: 100%;
+      }
+
+      .fm-component-button {
+        height: 50px;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 760;
+        cursor: pointer;
+        transition: all 0.18s ease;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+      }
+
+      .fm-reset-button {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        box-shadow: none;
+      }
+
+      .fm-calculate-button {
+        color: var(--navy);
+        background: rgba(250, 250, 250, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        box-shadow: 0 10px 22px rgba(0, 49, 82, 0.06);
+      }
+
+      .fm-component-button:hover {
+        transform: translateY(-1px);
+        background: rgba(250, 250, 250, 0.98);
+        color: var(--navy);
+      }
+
+      .fm-component-button:active {
+        transform: scale(0.985);
+      }
+      /* === FIX: keep sliders inside the card === */
+      .fm-slider-wrap,
+      .fm-slider-area,
+      .fm-slider-box,
+      .fm-range-wrap {
+        width: 100% !important;
+        max-width: 500px !important;
+        box-sizing: border-box !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow: visible !important;
+      }
+
+      .fm-slider-track,
+      .fm-track,
+      .fm-range-track {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .fm-control-card,
+      .fm-card {
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .fm-slider-row,
+      .fm-control-body {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding-right: 6px !important;
+      }
+
+      .fm-ticks,
+      .fm-scale,
+      .fm-slider-labels {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        box-sizing: border-box !important;
+      }
+
+      .fm-ticks span,
+      .fm-scale span,
+      .fm-slider-labels span {
+        text-align: center !important;
+        white-space: nowrap !important;
+      }
+
+      .fm-ticks span:first-child,
+      .fm-scale span:first-child,
+      .fm-slider-labels span:first-child {
+        text-align: left !important;
+      }
+
+      .fm-ticks span:last-child,
+      .fm-scale span:last-child,
+      .fm-slider-labels span:last-child {
+        text-align: right !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      const ORDER = [
+        "rainfall",
+        "weather_worse",
+        "area_type",
+        "coast_distance",
+        "river_control",
+        "dam_condition",
+        "drainage_quality",
+      ];
+
+      const SECTIONS = [
+        { title: "Weather & Climate", keys: ["rainfall", "weather_worse"] },
+        {
+          title: "Location & Topography",
+          keys: ["area_type", "coast_distance"],
+        },
+        {
+          title: "Infrastructure & Systems",
+          keys: ["river_control", "dam_condition", "drainage_quality"],
+        },
+      ];
+
+      let controls = {};
+      let values = {};
+      let defaults = {};
+      let rendered = false;
+
+      function send(type, data = {}) {
+        window.parent.postMessage(
+          {
+            isStreamlitMessage: true,
+            type,
+            ...data,
+          },
+          "*",
+        );
+      }
+
+      function setComponentReady() {
+        send("streamlit:componentReady", { apiVersion: 1 });
+      }
+
+      function setFrameHeight() {
+        const height = Math.ceil(document.documentElement.scrollHeight);
+        send("streamlit:setFrameHeight", { height });
+      }
+
+      function setComponentValue(action) {
+        send("streamlit:setComponentValue", {
+          value: {
+            action: action,
+            values: { ...values },
+            event_id: `${action}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          },
+          dataType: "json",
+        });
+      }
+
+      function clampIndex(value) {
+        const number = Number.parseInt(value, 10);
+        if (Number.isNaN(number)) return 0;
+        return Math.max(0, Math.min(3, number));
+      }
+
+      function escapeHtml(text) {
+        return String(text)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function safeTickHtml(tick) {
+        return String(tick)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/&lt;br&gt;/g, "<br>");
+      }
+
+      function fillPercent(key, index) {
+        const exactPercents = [0, 33.3333, 66.6667, 100];
+        return Number(exactPercents[index] ?? 0);
+      }
+
+      function updateControl(key) {
+        const index = clampIndex(values[key]);
+        const config = controls[key];
+        const chip = document.querySelector(`[data-chip-for="${key}"]`);
+        const input = document.querySelector(`[data-input-for="${key}"]`);
+
+        if (!config || !chip || !input) return;
+
+        chip.textContent = config.chips[index];
+        chip.className = `fm-chip ${config.classes[index]}`;
+        input.value = String(index);
+
+        const percent = fillPercent(key, index);
+        input.style.background = `linear-gradient(to right, var(--blue) 0%, var(--blue) ${percent}%, rgba(255,255,255,0.88) ${percent}%, rgba(255,255,255,0.88) 100%)`;
+        input.style.backgroundSize = "100% 4px";
+        input.style.backgroundRepeat = "no-repeat";
+        input.style.backgroundPosition = "center";
+        input.style.boxShadow = "0 0 10px rgba(52,185,223,0.14)";
+      }
+
+      function setValue(key, index) {
+        values[key] = clampIndex(index);
+        updateControl(key);
+        // IMPORTANT: Do not send slider movement to Streamlit.
+        // This keeps dragging smooth and prevents page flashing.
+      }
+
+      function render() {
+        const root = document.getElementById("root");
+        root.innerHTML = "";
+
+        const card = document.createElement("div");
+        card.className = "fm-sim-main-card";
+        card.innerHTML = `
+        <div class="fm-card-title">Simulation Parameters</div>
+        <div class="fm-card-desc">Enter environmental data to get instant flood risk prediction and receive real-time AI assessment of current conditions.</div>
+      `;
+
+        SECTIONS.forEach((section) => {
+          const sectionEl = document.createElement("div");
+          sectionEl.className = "fm-sim-section";
+          sectionEl.innerHTML = `<div class="fm-section-title">${escapeHtml(section.title)}</div>`;
+
+          section.keys.forEach((key) => {
+            const config = controls[key];
+            if (!config) return;
+
+            const currentIndex = clampIndex(values[key]);
+            const control = document.createElement("div");
+            control.className = "fm-control";
+            control.innerHTML = `
+            <div class="fm-control-head">
+              <div class="fm-control-label">${escapeHtml(config.label)}</div>
+              <div class="fm-chip ${config.classes[currentIndex]}" data-chip-for="${key}">${escapeHtml(config.chips[currentIndex])}</div>
+            </div>
+            <div class="fm-range-wrap">
+              <input class="fm-range" data-input-for="${key}" type="range" min="0" max="3" step="1" value="${currentIndex}" aria-label="${escapeHtml(config.label)}" />
+            </div>
+            <div class="fm-ticks">
+              ${config.ticks.map((tick, index) => `<span data-tick-for="${key}" data-index="${index}">${safeTickHtml(tick)}</span>`).join("")}
+            </div>
+          `;
+
+            sectionEl.appendChild(control);
+          });
+
+          card.appendChild(sectionEl);
+        });
+
+        root.appendChild(card);
+
+        const buttonRow = document.createElement("div");
+        buttonRow.className = "fm-component-buttons";
+        buttonRow.innerHTML = `
+        <button type="button" class="fm-component-button fm-reset-button" id="fm-reset-button">Reset Values</button>
+        <button type="button" class="fm-component-button fm-calculate-button" id="fm-calculate-button">Calculate</button>
+      `;
+        root.appendChild(buttonRow);
+
+        const resetButton = document.getElementById("fm-reset-button");
+        const calculateButton = document.getElementById("fm-calculate-button");
+
+        resetButton.addEventListener("click", () => {
+          values = { ...defaults };
+          ORDER.forEach((key) => updateControl(key));
+          setComponentValue("reset");
+        });
+
+        calculateButton.addEventListener("click", () => {
+          setComponentValue("calculate");
+        });
+
+        ORDER.forEach((key) => {
+          const input = document.querySelector(`[data-input-for="${key}"]`);
+          if (!input) return;
+
+          input.addEventListener("input", (event) => {
+            setValue(key, event.target.value);
+          });
+
+          input.addEventListener("change", (event) => {
+            setValue(key, event.target.value);
+          });
+
+          document
+            .querySelectorAll(`[data-tick-for="${key}"]`)
+            .forEach((tick) => {
+              tick.addEventListener("click", () => {
+                setValue(key, tick.dataset.index);
+              });
+            });
+
+          updateControl(key);
+        });
+
+        rendered = true;
+        requestAnimationFrame(setFrameHeight);
+      }
+
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data || data.type !== "streamlit:render") return;
+
+        const args = data.args || {};
+        controls = args.controls || {};
+        values = args.values || {};
+        defaults = args.default || {};
+
+        ORDER.forEach((key) => {
+          if (defaults[key] === undefined || defaults[key] === null) {
+            defaults[key] = 0;
+          }
+          defaults[key] = clampIndex(defaults[key]);
+        });
+
+        ORDER.forEach((key) => {
+          if (values[key] === undefined || values[key] === null) {
+            values[key] = 0;
+          }
+          values[key] = clampIndex(values[key]);
+        });
+
+        render();
+      });
+
+      setComponentReady();
+      setTimeout(setFrameHeight, 0);
+    </script>
+  </body>
+</html>
