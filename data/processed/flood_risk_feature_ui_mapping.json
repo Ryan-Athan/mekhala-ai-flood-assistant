@@ -1,0 +1,36 @@
+{
+  "feature_order": [
+    "rainfall",
+    "land_drainage",
+    "river_mgmt",
+    "storm_freq",
+    "dam_quality",
+    "drainage",
+    "coastal_risk"
+  ],
+  "target": "flood_probability",
+  "ui_to_feature_mapping": {
+    "Rainfall Level": "rainfall",
+    "Weather getting worse?": "storm_freq",
+    "Area Type": "land_drainage",
+    "Distance to coast": "coastal_risk",
+    "River control": "river_mgmt",
+    "Dam condition": "dam_quality",
+    "Drainage quality": "drainage"
+  },
+  "feature_to_ui_mapping": {
+    "rainfall": "Rainfall Level",
+    "storm_freq": "Weather getting worse?",
+    "land_drainage": "Area Type",
+    "coastal_risk": "Distance to coast",
+    "river_mgmt": "River control",
+    "dam_quality": "Dam condition",
+    "drainage": "Drainage quality"
+  },
+  "slider_index_to_quantile_strategy": {
+    "0": "q05 / safest-lowest option",
+    "1": "q25 / moderate-low option",
+    "2": "q75 / moderate-high option",
+    "3": "q95 / highest/unknown-risk option"
+  }
+}
