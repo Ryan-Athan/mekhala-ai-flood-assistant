@@ -1090,6 +1090,52 @@ def _inject_image_analysis_css() -> None:
         div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button{background:#003152!important;color:#fff!important;border:1px solid #003152!important;box-shadow:0 8px 20px rgba(0,49,82,.16)!important}
         div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button:hover,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button:hover{background:#0a456d!important;transform:translateY(-1px)!important;box-shadow:0 11px 24px rgba(0,49,82,.22)!important}
         @media(max-width:760px){.ia-selected-preview{width:min(100%,360px)}.ia-selected-meta{align-items:flex-start;flex-direction:column;gap:7px}.ia-selected-filename{max-width:100%}div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"],div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"]{gap:8px!important}}
+
+        /* Mobile uploader reliability: keep Streamlit's native file input touchable. */
+        @media (max-width: 760px) {
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) {
+                min-height: 0 !important;
+                overflow: visible !important;
+            }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) > div {
+                min-height: 0 !important;
+                padding: 14px !important;
+            }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stFileUploader"] {
+                width: 100% !important;
+                margin: 0 0 20px 0 !important;
+                position: relative !important;
+                z-index: 100 !important;
+                pointer-events: auto !important;
+                touch-action: manipulation !important;
+            }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stFileUploader"] section {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 74px !important;
+                overflow: visible !important;
+                position: relative !important;
+                z-index: 101 !important;
+                pointer-events: auto !important;
+                touch-action: manipulation !important;
+            }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stFileUploader"] section button {
+                position: relative !important;
+                z-index: 103 !important;
+                pointer-events: auto !important;
+                touch-action: manipulation !important;
+            }
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stFileUploader"] input[type="file"] {
+                pointer-events: auto !important;
+                touch-action: manipulation !important;
+                z-index: 104 !important;
+            }
+            .ia-upload-visual {
+                position: relative !important;
+                z-index: 1 !important;
+                pointer-events: none !important;
+            }
+        }
 </style>
         """
     )
