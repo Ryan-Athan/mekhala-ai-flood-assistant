@@ -886,43 +886,36 @@ body,
 
 
 def render_mobile_menu(active_page: str) -> None:
-    links = ""
-
-    for page_name, data in PAGE_OPTIONS.items():
+    # Keep the entire mobile menu as one compact HTML fragment.
+    # Leading indentation/newlines in mixed Markdown/HTML can be interpreted as
+    # a Markdown code block on some Streamlit/mobile browser combinations.
+    links = []
+    for page_name in PAGE_OPTIONS:
         active_class = " active" if page_name == active_page else ""
         page_url = f"?page={quote(page_name)}"
-
-        links += (
-            f'<a class="mk-mobile-nav-link{active_class}" href="{page_url}">'
-            '<span class="mk-mobile-dot"></span>'
-            # f'<span>{data["icon"]} {page_name}</span>'
-            '</a>'
+        links.append(
+            f'<a class="mk-mobile-nav-link{active_class}" href="{page_url}" target="_self">'
+            f'<span class="mk-mobile-dot"></span>'
+            f'<span>{page_name}</span>'
+            f'</a>'
         )
 
-    st.markdown(
-        f"""
-<a class="mk-mobile-menu-button" href="#mk-mobile-menu" aria-label="Open menu">☰</a>
-
-<nav id="mk-mobile-menu" class="mk-mobile-menu">
-    <a class="mk-mobile-close" href="#" aria-label="Close menu">‹</a>
-
-    <div class="mk-mobile-brand">
-        {_brand_logo_html("mk-mobile-logo")}
-        <div class="mk-mobile-title">{BRAND_NAME}</div>
-    </div>
-
-    <div class="mk-mobile-nav">
-        {links}
-    </div>
-
-    <div class="mk-mobile-footer">Powered by Eggvengers</div>
-</nav>
-
-<a class="mk-mobile-menu-backdrop" href="#" aria-label="Close menu"></a>
-        """,
-        unsafe_allow_html=True,
+    menu_html = (
+        '<a class="mk-mobile-menu-button" href="#mk-mobile-menu" aria-label="Open menu">☰</a>'
+        '<nav id="mk-mobile-menu" class="mk-mobile-menu">'
+        '<a class="mk-mobile-close" href="#" aria-label="Close menu">‹</a>'
+        '<div class="mk-mobile-brand">'
+        f'{_brand_logo_html("mk-mobile-logo")}'
+        f'<div class="mk-mobile-title">{BRAND_NAME}</div>'
+        '</div>'
+        '<div class="mk-mobile-nav">'
+        f'{"".join(links)}'
+        '</div>'
+        '<div class="mk-mobile-footer">Powered by Eggvengers</div>'
+        '</nav>'
+        '<a class="mk-mobile-menu-backdrop" href="#" aria-label="Close menu"></a>'
     )
-
+    st.markdown(menu_html, unsafe_allow_html=True)
 
 def _on_desktop_page_change() -> None:
     selected_page = st.session_state.get("desktop_active_page")
