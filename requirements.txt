@@ -8,3 +8,5 @@ torch
 deep-translator
 langdetect
 requests
+folium
+streamlit-folium

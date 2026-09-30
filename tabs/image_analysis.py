@@ -886,28 +886,217 @@ def _inject_image_analysis_css() -> None:
             box-shadow: 0 10px 24px rgba(0, 49, 82, 0.08) !important;
         }
 
-        </style>
+
+        /* Professional Image Analysis v2 overrides */
+        .ia-neutral{color:#315c76 !important}.ia-muted{color:rgba(0,49,82,.48)!important}
+        .ia-assessment-banner{display:grid;grid-template-columns:1fr 112px 112px;gap:14px;align-items:center;margin:10px 0 16px;padding:22px 24px;border:1px solid rgba(255,255,255,.5);border-radius:16px;background:rgba(255,255,255,.20);box-shadow:0 10px 28px rgba(0,49,82,.05)}
+        .ia-eyebrow{font-size:9px;font-weight:900;letter-spacing:1.2px;color:rgba(0,49,82,.55);margin-bottom:7px}.ia-assessment-title{font-size:24px;font-weight:950;line-height:1.1;margin-bottom:8px}.ia-assessment-copy{font-size:11px;font-weight:650;line-height:1.55;color:rgba(0,49,82,.72);max-width:560px}
+        .ia-metric{height:82px;border-radius:13px;background:rgba(255,255,255,.42);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.ia-metric strong{font-size:20px;color:#003152}.ia-metric span{font-size:9px;font-weight:800;color:rgba(0,49,82,.6);margin-top:5px}
+        .ia-prof-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:14px}.ia-prof-card{border:1px solid rgba(255,255,255,.5);border-radius:16px;background:rgba(255,255,255,.16);padding:20px}.ia-prof-card h3{margin:0 0 18px;font-size:15px;color:#003152}
+        .ia-condition-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.42);font-size:11px;color:rgba(0,49,82,.68);font-weight:750}.ia-condition-row strong{font-size:11px;font-weight:950;text-align:right}.ia-observation{padding-top:16px}.ia-observation span{font-size:10px;color:rgba(0,49,82,.58);font-weight:800}.ia-observation p{font-size:11px;line-height:1.55;color:rgba(0,49,82,.72);font-weight:650;margin:5px 0 0}
+        .ia-action-row{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.42)}.ia-action-num{width:27px;height:27px;border-radius:8px;background:rgba(255,255,255,.38);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:rgba(0,49,82,.6)}.ia-action-text{font-size:11px;font-weight:800;color:#003152;line-height:1.4}.ia-action-priority{font-size:8px;font-weight:950;letter-spacing:.35px;padding:5px 7px;border-radius:999px}.ia-action-high{background:#fdebed;color:#c92d35}.ia-action-routine{background:#e8f7ef;color:#08753d}.ia-action-info{background:rgba(255,255,255,.55);color:#315c76}.ia-result-note{margin-top:12px;padding:11px 14px;border-radius:11px;background:rgba(255,255,255,.15);font-size:9px;font-weight:650;color:rgba(0,49,82,.58)}
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div.element-container:has(.ia-analyze-anchor) + div.element-container,div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stElementContainer"]:has(.ia-analyze-anchor) + div[data-testid="stElementContainer"]{width:100%!important;display:flex!important;justify-content:center!important;margin:26px auto 0!important}
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div.element-container:has(.ia-analyze-anchor) + div.element-container button,div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) div[data-testid="stElementContainer"]:has(.ia-analyze-anchor) + div[data-testid="stElementContainer"] button{width:210px!important;min-width:210px!important;max-width:210px!important;height:44px!important;border-radius:10px!important;background:#003152!important;color:#fff!important;border:1px solid #003152!important;font-size:12px!important;font-weight:850!important;box-shadow:0 8px 20px rgba(0,49,82,.14)!important}
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) button:disabled{background:rgba(255,255,255,.28)!important;color:rgba(0,49,82,.45)!important;border-color:rgba(255,255,255,.5)!important;box-shadow:none!important}
+        div.element-container:has(.ia-gallery-open-anchor)+div.element-container button,div[data-testid="stElementContainer"]:has(.ia-gallery-open-anchor)+div[data-testid="stElementContainer"] button{width:auto!important;min-width:72px!important;height:32px!important;border-radius:9px!important;padding:0 12px!important;background:rgba(255,255,255,.42)!important;color:#003152!important;border:1px solid rgba(255,255,255,.6)!important;font-size:10px!important;font-weight:850!important;box-shadow:none!important}
+        @media(max-width:760px){.ia-assessment-banner{grid-template-columns:1fr 1fr}.ia-assessment-banner>div:first-child{grid-column:1/-1}.ia-prof-grid{grid-template-columns:1fr}}
+
+        /* Refined result typography */
+        .ia-assessment-banner{grid-template-columns:190px minmax(0,1fr) 100px!important;gap:18px!important;padding:20px!important;align-items:stretch!important}
+        .ia-result-preview{width:190px;height:128px;border-radius:13px;overflow:hidden;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.55)}
+        .ia-result-preview img{width:100%;height:100%;object-fit:cover;display:block}
+        .ia-eyebrow{font-size:10px!important;font-weight:700!important;letter-spacing:1.35px!important;color:rgba(0,49,82,.48)!important;margin-bottom:8px!important}
+        .ia-assessment-title{font-size:29px!important;font-weight:750!important;letter-spacing:-.45px!important;line-height:1.08!important;margin-bottom:9px!important}
+        .ia-assessment-copy{font-size:13px!important;font-weight:450!important;line-height:1.55!important;color:rgba(0,49,82,.68)!important;max-width:620px!important}
+        .ia-metric{height:auto!important;min-height:96px!important}.ia-metric strong{font-size:22px!important;font-weight:700!important}.ia-metric span{font-size:10px!important;font-weight:600!important}
+        .ia-prof-card{padding:22px 24px!important}.ia-prof-card h3{margin:0 0 18px!important;font-size:18px!important;font-weight:700!important;letter-spacing:-.2px!important}
+        .ia-condition-row{padding:13px 0!important;font-size:13px!important;font-weight:450!important;color:rgba(0,49,82,.62)!important}.ia-condition-row strong{font-size:13px!important;font-weight:650!important}
+        .ia-observation{padding-top:18px!important}.ia-observation span{font-size:10px!important;font-weight:700!important;letter-spacing:.7px!important;text-transform:uppercase!important;color:rgba(0,49,82,.46)!important}.ia-observation p{font-size:13px!important;line-height:1.58!important;font-weight:400!important;color:rgba(0,49,82,.66)!important;margin:7px 0 0!important}
+        .ia-action-row{grid-template-columns:34px minmax(0,1fr) auto!important;gap:12px!important;align-items:start!important;padding:14px 0!important}.ia-action-num{width:30px!important;height:30px!important;border-radius:9px!important;font-size:10px!important;font-weight:700!important}.ia-action-text{font-size:13px!important;font-weight:600!important;line-height:1.45!important;padding-top:5px!important}.ia-action-priority{font-size:9px!important;font-weight:700!important;letter-spacing:.55px!important;padding:6px 9px!important;margin-top:2px!important}
+        .ia-action-content{min-width:0;padding-top:1px}.ia-action-title{font-size:13px;font-weight:800;color:#003152;line-height:1.35}.ia-action-desc{margin-top:4px;font-size:11px;font-weight:650;color:rgba(0,49,82,.72);line-height:1.48}.ia-action-medium{background:#fff4da;color:#8a5a00}.ia-action-monitor{background:#e7f3fb;color:#245f80}.ia-condition-row{font-weight:650!important;color:rgba(0,49,82,.76)!important}.ia-condition-row strong{font-weight:800!important}.ia-observation span{font-weight:800!important;color:rgba(0,49,82,.68)!important}.ia-observation p{font-weight:650!important;color:rgba(0,49,82,.78)!important}
+        .ia-result-note{font-size:11px!important;font-weight:400!important;line-height:1.5!important;padding:11px 15px!important;color:rgba(0,49,82,.52)!important}
+        @media(max-width:980px){.ia-assessment-banner{grid-template-columns:150px 1fr!important}.ia-result-preview{width:150px}.ia-prof-grid{grid-template-columns:1fr!important}}
+        @media(max-width:760px){.ia-assessment-banner{grid-template-columns:1fr!important}.ia-result-preview{width:100%;height:190px}.ia-prof-grid{grid-template-columns:1fr!important}}
+
+
+        /* Professional interaction + motion system */
+        .ia-assessment-banner,
+        .ia-prof-card,
+        .ia-sample-card,
+        .ia-plus-card,
+        .ia-gallery-card,
+        .ia-result-preview,
+        .ia-action-row,
+        .ia-condition-row {
+            transition: transform .22s cubic-bezier(.2,.8,.2,1),
+                        box-shadow .22s ease,
+                        border-color .22s ease,
+                        background-color .22s ease,
+                        opacity .22s ease;
+        }
+
+        .ia-assessment-banner,
+        .ia-prof-card {
+            will-change: transform;
+        }
+
+        .ia-assessment-banner:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,.72);
+            box-shadow: 0 16px 34px rgba(0,49,82,.085);
+        }
+
+        .ia-prof-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,.72);
+            background: rgba(255,255,255,.20);
+            box-shadow: 0 15px 32px rgba(0,49,82,.075);
+        }
+
+        .ia-result-preview img,
+        .ia-sample-card img,
+        .ia-gallery-card img {
+            transition: transform .28s cubic-bezier(.2,.8,.2,1), filter .28s ease;
+        }
+
+        .ia-result-preview:hover img { transform: scale(1.018); }
+
+        .ia-sample-card:hover,
+        .ia-plus-card:hover,
+        .ia-gallery-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,.78);
+            box-shadow: 0 12px 26px rgba(0,49,82,.10);
+        }
+        .ia-sample-card:hover img,
+        .ia-gallery-card:hover img { transform: scale(1.025); }
+
+        .ia-action-row {
+            margin: 0 -10px;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            border-radius: 10px;
+        }
+        .ia-action-row:hover {
+            transform: translateX(2px);
+            background: rgba(255,255,255,.18);
+        }
+        .ia-action-row:hover .ia-action-num {
+            background: rgba(255,255,255,.58);
+            transform: translateY(-1px);
+        }
+        .ia-action-num,
+        .ia-action-priority {
+            transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+        }
+        .ia-action-row:hover .ia-action-priority {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 12px rgba(0,49,82,.07);
+        }
+
+        .ia-condition-row {
+            margin: 0 -8px;
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+            border-radius: 8px;
+        }
+        .ia-condition-row:hover { background: rgba(255,255,255,.13); }
+
+        /* Result enters once after Streamlit renders the new assessment. */
+        .ia-section-title,
+        .ia-assessment-banner,
+        .ia-prof-grid,
+        .ia-result-note {
+            animation: iaResultEnter .38s cubic-bezier(.2,.8,.2,1) both;
+        }
+        .ia-assessment-banner { animation-delay: .035s; }
+        .ia-prof-grid { animation-delay: .075s; }
+        .ia-result-note { animation-delay: .11s; }
+        @keyframes iaResultEnter {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Native Streamlit controls: subtle lift only, no distracting scaling. */
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) button:not(:disabled),
+        div.element-container:has(.ia-gallery-open-anchor)+div.element-container button,
+        div[data-testid="stElementContainer"]:has(.ia-gallery-open-anchor)+div[data-testid="stElementContainer"] button {
+            transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) button:not(:disabled):hover,
+        div.element-container:has(.ia-gallery-open-anchor)+div.element-container button:hover,
+        div[data-testid="stElementContainer"]:has(.ia-gallery-open-anchor)+div[data-testid="stElementContainer"] button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(0,49,82,.14) !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) button:not(:disabled):active,
+        div.element-container:has(.ia-gallery-open-anchor)+div.element-container button:active,
+        div[data-testid="stElementContainer"]:has(.ia-gallery-open-anchor)+div[data-testid="stElementContainer"] button:active {
+            transform: translateY(0);
+        }
+
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker) {
+            transition: border-color .22s ease, background-color .22s ease, box-shadow .22s ease !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.ia-upload-card-marker):hover {
+            border-color: rgba(255,255,255,1) !important;
+            background: rgba(255,255,255,.12) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 12px 28px rgba(0,49,82,.045) !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ia-assessment-banner,
+            .ia-prof-card,
+            .ia-sample-card,
+            .ia-plus-card,
+            .ia-gallery-card,
+            .ia-result-preview,
+            .ia-result-preview img,
+            .ia-sample-card img,
+            .ia-gallery-card img,
+            .ia-action-row,
+            .ia-action-num,
+            .ia-action-priority,
+            .ia-condition-row,
+            .ia-section-title,
+            .ia-prof-grid,
+            .ia-result-note {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+        
+/* Single-image analysis workflow */
+.ia-single-preview-grid{grid-template-columns:minmax(180px,280px)!important;justify-content:center!important;}
+.ia-single-preview-card{width:min(280px,100%)!important;margin:0 auto!important;}
+.ia-single-preview-card img{width:100%!important;aspect-ratio:16/10;object-fit:cover;}
+
+        /* Selected-image workspace: compact, professional single-card state */
+        .ia-selected-workspace{padding:4px 8px 0;animation:iaResultIn .28s ease both}
+        .ia-selected-heading{font-size:14px;font-weight:800;color:#003152;letter-spacing:.01em;margin:2px 0 18px}
+        .ia-selected-preview{width:min(100%,440px);aspect-ratio:4/3;margin:0 auto;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.66);box-shadow:0 12px 30px rgba(0,49,82,.08);display:flex;align-items:center;justify-content:center;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+        .ia-selected-preview:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,49,82,.12);border-color:rgba(255,255,255,.9)}
+        .ia-selected-preview img{width:100%;height:100%;object-fit:contain;display:block;background:rgba(255,255,255,.12)}
+        .ia-selected-meta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:16px 2px 8px;padding:0 2px;font-size:12px;color:#315f7d}
+        .ia-selected-filename{font-weight:700;color:#003152;max-width:65%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .ia-ready-status{display:inline-flex;align-items:center;gap:7px;font-weight:700;white-space:nowrap}
+        .ia-ready-dot{width:7px;height:7px;border-radius:50%;background:#15925a;box-shadow:0 0 0 4px rgba(21,146,90,.10)}
+        div.element-container:has(.ia-selected-actions-anchor),div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor){height:0!important;min-height:0!important;margin:0!important;padding:0!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"],div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"]{align-items:center!important;margin-top:16px!important;gap:10px!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] button,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] button{height:44px!important;border-radius:11px!important;font-size:12px!important;font-weight:800!important;white-space:nowrap!important;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:first-child button,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:first-child button{background:rgba(255,255,255,.45)!important;color:#003152!important;border:1px solid rgba(255,255,255,.72)!important;box-shadow:none!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:first-child button:hover,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:first-child button:hover{background:rgba(255,255,255,.68)!important;transform:translateY(-1px)!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button{background:#003152!important;color:#fff!important;border:1px solid #003152!important;box-shadow:0 8px 20px rgba(0,49,82,.16)!important}
+        div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button:hover,div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"] div[data-testid="column"]:last-child button:hover{background:#0a456d!important;transform:translateY(-1px)!important;box-shadow:0 11px 24px rgba(0,49,82,.22)!important}
+        @media(max-width:760px){.ia-selected-preview{width:min(100%,360px)}.ia-selected-meta{align-items:flex-start;flex-direction:column;gap:7px}.ia-selected-filename{max-width:100%}div.element-container:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"],div[data-testid="stElementContainer"]:has(.ia-selected-actions-anchor)+div[data-testid="stHorizontalBlock"]{gap:8px!important}}
+</style>
         """
     )
 
 
 def _default_result() -> dict[str, Any]:
-    return {
-        "uploaded_count": 0,
-        "flood_detected": "Yes",
-        "risk_level": "High",
-        "confidence": 94,
-        "water_coverage": 38,
-        "context": "The road is flooded and not safe for vehicles. Water is moving and may increase quickly.",
-        "recommendations": [
-            "Do not drive through water",
-            "Check local flood updates",
-            "Move to higher ground if needed",
-        ],
-        "model": "ResNet-101",
-        "accuracy": "96%",
-        "data_analyzed": "250,000 images",
-    }
+    return _summarize_many_results([])
 
 
 def _ensure_state() -> None:
@@ -955,92 +1144,159 @@ def _sample_label_class(label: str) -> str:
         return "ia-label-medium"
     if value == "low":
         return "ia-label-low"
+    if value in {"not relevant", "unrelated"}:
+        return "ia-label-uploaded"
+    if value in {"flood detected", "high risk"}:
+        return "ia-label-high"
     return "ia-label-uploaded"
 
 
 def _normalize_single_result(raw: dict[str, Any] | None, file_name: str = "") -> dict[str, Any]:
-    base = {
+    """Normalize only values actually returned by the image classifier.
+
+    The trained image model is a 3-class classifier (Flood / Non_Flood / Unrelated).
+    Do not invent water coverage, severity, or confidence when the backend did not return them.
+    """
+    raw = raw or {}
+
+    def first(*keys, default=None):
+        for key in keys:
+            value = raw.get(key)
+            if value is not None and value != "":
+                return value
+        return default
+
+    predicted = str(first("classification", "predicted_class", "class_name", "class", "label", "prediction", default="")).strip()
+    token = predicted.lower().replace("-", "_").replace(" ", "_")
+    if token in {"flood", "flooded"}:
+        category = "Flood"
+    elif token in {"non_flood", "nonflood", "no_flood", "normal"}:
+        category = "Non_Flood"
+    elif token in {"unrelated", "not_relevant", "irrelevant"}:
+        category = "Unrelated"
+    else:
+        # Older service versions may return flood_detected/risk_level instead of a class name.
+        detected = str(first("flood_detected", default="")).lower()
+        category = "Flood" if detected == "yes" else "Non_Flood" if detected == "no" else "Unknown"
+
+    confidence = first("confidence", "confidence_score", "probability", "score")
+    try:
+        confidence = float(confidence)
+        if 0 <= confidence <= 1:
+            confidence *= 100
+        confidence = int(round(max(0, min(100, confidence))))
+    except (TypeError, ValueError):
+        confidence = None
+
+    backend_risk = first("risk_level", "severity")
+    if category == "Unrelated":
+        risk_level = "Not Relevant"
+        flood_detected = "Not assessed"
+    elif category == "Non_Flood":
+        risk_level = "Low" if not backend_risk else str(backend_risk)
+        flood_detected = "No"
+    elif category == "Flood":
+        risk_level = str(backend_risk) if backend_risk else "Flood Detected"
+        flood_detected = "Yes"
+    else:
+        risk_level = "Unable to Assess"
+        flood_detected = "Not assessed"
+
+    water = first("water_coverage", "water_coverage_percent", "coverage_percent")
+    try:
+        water = int(round(float(water))) if water is not None else None
+        if water is not None:
+            water = max(0, min(100, water))
+    except (TypeError, ValueError):
+        water = None
+
+    road_impact = first("road_impact", "access_impact")
+    context = first("context", "what_happening", "description")
+    actions = first("recommendations", "what_you_should_do", "actions")
+    if isinstance(actions, str):
+        actions = [actions]
+    elif not isinstance(actions, list):
+        actions = []
+
+    if not context:
+        if category == "Flood":
+            context = "Flood conditions were detected in the uploaded image. Use the image result together with local observations and official warnings."
+        elif category == "Non_Flood":
+            context = "No flood condition was detected in the uploaded image. Continue monitoring if weather or water levels are changing."
+        elif category == "Unrelated":
+            context = "This image is not relevant to flood-condition analysis. Upload a clear photo of a road, street, river, drainage area, or visible floodwater."
+        else:
+            context = "The image could not be assessed reliably. Try another clear image showing the surrounding ground or water conditions."
+
+    if not actions:
+        if category == "Flood":
+            actions = ["Avoid entering visible floodwater", "Check local flood warnings", "Use a safer route or move to higher ground if conditions worsen"]
+        elif category == "Non_Flood":
+            actions = ["Continue normal monitoring", "Reassess if rainfall or water levels increase"]
+        elif category == "Unrelated":
+            actions = ["Upload a flood-related field image", "Include roads, ground, drainage, riverbanks, or visible water"]
+        else:
+            actions = ["Upload a clearer image", "Make sure the scene is visible and not heavily blurred or obstructed"]
+
+    return {
         "file_name": file_name,
-        "flood_detected": "Yes",
-        "risk_level": "High",
-        "confidence": 94,
-        "water_coverage": 38,
-        "context": "The road is flooded and not safe for vehicles. Water is moving and may increase quickly.",
-        "recommendations": [
-            "Do not drive through water",
-            "Check local flood updates",
-            "Move to higher ground if needed",
-        ],
-        "model": "ResNet-101",
-        "accuracy": "96%",
-        "data_analyzed": "250,000 images",
+        "classification": category,
+        "flood_detected": flood_detected,
+        "risk_level": risk_level,
+        "confidence": confidence,
+        "water_coverage": water,
+        "road_impact": road_impact,
+        "context": str(context),
+        "recommendations": [str(x) for x in actions if str(x).strip()],
     }
-
-    if raw:
-        mapping = {
-            "what_happening": "context",
-            "description": "context",
-            "what_you_should_do": "recommendations",
-            "actions": "recommendations",
-            "model_name": "model",
-            "confidence_score": "confidence",
-        }
-
-        for key, value in raw.items():
-            target = mapping.get(key, key)
-            if target in base and value is not None:
-                base[target] = f"{value}%" if target == "accuracy" and isinstance(value, int) else value
-
-    if isinstance(base.get("accuracy"), int):
-        base["accuracy"] = f'{base["accuracy"]}%'
-
-    if not isinstance(base.get("recommendations"), list):
-        base["recommendations"] = [str(base.get("recommendations", ""))]
-
-    return base
 
 
 def _summarize_many_results(results: list[dict[str, Any]]) -> dict[str, Any]:
     if not results:
         return {
             "uploaded_count": 0,
-            "flood_detected": "No",
+            "classification": "No Image",
+            "flood_detected": "Not assessed",
             "risk_level": "No Image",
-            "confidence": 0,
-            "water_coverage": 0,
-            "context": "Please upload at least one JPG, PNG, or JPEG image before clicking Analyze Image.",
-            "recommendations": [
-                "Click the upload box",
-                "Select one or more photos",
-                "Click Analyze Image again",
-            ],
-            "model": "ResNet-101",
-            "accuracy": "96%",
-            "data_analyzed": "250,000 images",
+            "confidence": None,
+            "water_coverage": None,
+            "road_impact": None,
+            "context": "Upload one or more JPG, PNG, or JPEG images to start a flood-condition assessment.",
+            "recommendations": ["Upload a clear field image to begin"],
         }
 
-    highest = max(results, key=lambda item: _risk_rank(str(item.get("risk_level", ""))))
-    avg_confidence = round(sum(int(item.get("confidence", 0)) for item in results) / len(results))
-    avg_water = round(sum(int(item.get("water_coverage", 0)) for item in results) / len(results))
+    def rank(item: dict[str, Any]) -> int:
+        cls = item.get("classification")
+        if cls == "Flood": return 3
+        if cls == "Non_Flood": return 2
+        if cls == "Unrelated": return 1
+        return 0
 
-    flood_detected = "Yes" if any(str(item.get("flood_detected", "")).lower() == "yes" for item in results) else "No"
-    highest_risk = str(highest.get("risk_level", "High"))
+    primary = max(results, key=rank)
+    relevant = [r for r in results if r.get("classification") != "Unrelated"]
+    confidences = [r["confidence"] for r in results if isinstance(r.get("confidence"), (int, float))]
+    coverages = [r["water_coverage"] for r in relevant if isinstance(r.get("water_coverage"), (int, float))]
+    classes = {r.get("classification") for r in results}
+
+    if classes == {"Unrelated"}:
+        classification = "Unrelated"
+        flood_detected = "Not assessed"
+        risk_level = "Not Relevant"
+    else:
+        classification = primary.get("classification", "Unknown")
+        flood_detected = primary.get("flood_detected", "Not assessed")
+        risk_level = primary.get("risk_level", "Unable to Assess")
 
     return {
         "uploaded_count": len(results),
+        "classification": classification,
         "flood_detected": flood_detected,
-        "risk_level": highest_risk,
-        "confidence": avg_confidence,
-        "water_coverage": avg_water,
-        "context": (
-            f"{len(results)} photo(s) uploaded and analyzed. "
-            f"The highest detected risk level is {highest_risk}. "
-            f"Average water coverage is about {avg_water}%."
-        ),
-        "recommendations": highest.get("recommendations", []),
-        "model": highest.get("model", "ResNet-101"),
-        "accuracy": highest.get("accuracy", "96%"),
-        "data_analyzed": highest.get("data_analyzed", "250,000 images"),
+        "risk_level": risk_level,
+        "confidence": round(sum(confidences) / len(confidences)) if confidences else None,
+        "water_coverage": round(sum(coverages) / len(coverages)) if coverages else None,
+        "road_impact": primary.get("road_impact"),
+        "context": primary.get("context", ""),
+        "recommendations": primary.get("recommendations", []),
     }
 
 
@@ -1048,98 +1304,88 @@ def _render_header() -> None:
     _html(
         """
         <h1 class="ia-page-title">Flood Image Analysis</h1>
-        <p class="ia-page-subtitle">Upload an image to analyze flood conditions and estimate severity.</p>
+        <p class="ia-page-subtitle">Assess visible flood conditions from field imagery.</p>
         """
     )
 
 
-def _add_new_uploads(uploaded_files: list[Any]) -> None:
-    if not uploaded_files:
+def _add_new_upload(uploaded_file: Any) -> None:
+    """Keep exactly one pending image for one analysis."""
+    if uploaded_file is None:
         return
 
-    existing_hashes = {item["hash"] for item in st.session_state.ia_pending_images}
-    added = False
+    data = uploaded_file.getvalue()
+    image_hash = _file_hash(data)
 
-    for uploaded_file in uploaded_files:
-        data = uploaded_file.getvalue()
-        image_hash = _file_hash(data)
+    # Do not rerun repeatedly when Streamlit returns the same uploader value.
+    if st.session_state.ia_pending_images and st.session_state.ia_pending_images[0].get("hash") == image_hash:
+        return
 
-        if image_hash in existing_hashes:
-            continue
-
-        st.session_state.ia_pending_images.append(
-            {
-                "name": getattr(uploaded_file, "name", "Uploaded image"),
-                "type": getattr(uploaded_file, "type", "image/png") or "image/png",
-                "data": data,
-                "hash": image_hash,
-            }
-        )
-        added = True
-
-    if added:
-        st.session_state.ia_uploader_version += 1
-        _rerun()
+    st.session_state.ia_pending_images = [
+        {
+            "name": getattr(uploaded_file, "name", "Uploaded image"),
+            "type": getattr(uploaded_file, "type", "image/png") or "image/png",
+            "data": data,
+            "hash": image_hash,
+        }
+    ]
+    st.session_state.ia_uploader_version += 1
+    _rerun()
 
 
 def _render_upload_visual() -> None:
     pending = st.session_state.ia_pending_images
 
     if not pending:
-        body = """
-        <div class="ia-upload-title">Upload image here or browse file</div>
-        <div class="ia-upload-copy">Supported formats: JPG, PNG, JPEG • Max file size: 20MB</div>
-        """
-    else:
-        cards = ""
-
-        for index, item in enumerate(pending[:4]):
-            src = _bytes_to_data_uri(item["data"], item["type"])
-            more = ""
-            if index == 3 and len(pending) > 4:
-                more = f'<div class="ia-preview-more">+{len(pending) - 4}</div>'
-
-            cards += (
-                '<div class="ia-preview-card">'
-                f'<img src="{src}" alt="Selected image preview">'
-                f'{more}'
-                '</div>'
-            )
-
-        count = len(pending)
-        label = "photo selected" if count == 1 else "photos selected"
-        body = (
-            f'<div class="ia-preview-grid">{cards}</div>'
-            f'<div class="ia-upload-copy">{count} {label}. Click Analyze Image to add it to Recent Samples.</div>'
+        _html(
+            f"""
+            <div class="ia-upload-visual">
+                <div class="ia-upload-icon">{UPLOAD_ICON_SVG}</div>
+                <div class="ia-upload-title">Upload image here or browse file</div>
+                <div class="ia-upload-copy">Supported formats: JPG, PNG, JPEG • Max file size: 20MB</div>
+            </div>
+            """
         )
+        return
 
+    item = pending[0]
+    src = _bytes_to_data_uri(item["data"], item["type"])
     _html(
         f"""
-        <div class="ia-upload-visual">
-            <div class="ia-upload-icon">{UPLOAD_ICON_SVG}</div>
-            {body}
+        <div class="ia-selected-workspace">
+            <div class="ia-selected-heading">Selected image</div>
+            <div class="ia-selected-preview">
+                <img src="{src}" alt="Selected image preview">
+            </div>
+            <div class="ia-selected-meta">
+                <span class="ia-selected-filename">{_safe(item.get('name', 'Uploaded image'))}</span>
+                <span class="ia-ready-status"><span class="ia-ready-dot"></span>Ready to analyze</span>
+            </div>
         </div>
         """
     )
 
 
-def _render_remove_buttons() -> None:
-    pending = st.session_state.ia_pending_images
+def _render_selected_actions() -> tuple[bool, bool]:
+    """Render the compact secondary/primary actions from the selected-image workspace."""
+    if not st.session_state.ia_pending_images:
+        return False, False
 
-    if not pending:
-        return
-
-    count = min(len(pending), 4)
-
-    _html('<span class="ia-remove-anchor"></span>')
-    cols = st.columns(count, gap="small")
-
-    for index in range(count):
-        with cols[index]:
-            if st.button("×", key=f"ia_remove_pending_{pending[index]['hash']}_{index}"):
-                st.session_state.ia_pending_images.pop(index)
-                st.session_state.ia_uploader_version += 1
-                _rerun()
+    _html('<span class="ia-selected-actions-anchor"></span>')
+    left, spacer, right = st.columns([1.15, 2.2, 2.0])
+    with left:
+        remove_clicked = st.button(
+            "Remove",
+            key=f"ia_remove_pending_{st.session_state.ia_pending_images[0]['hash']}",
+            use_container_width=True,
+        )
+    with right:
+        analyze_clicked = st.button(
+            "Analyze Flood Conditions",
+            key="analyze_uploaded_image_button",
+            use_container_width=True,
+        )
+    return remove_clicked, analyze_clicked
 
 
 def _render_static_sample_card(key: str, label: str, label_class: str) -> None:
@@ -1186,7 +1432,7 @@ def _render_plus_card(more_items: list[dict[str, str]]) -> None:
 
         _html('<span class="ia-gallery-open-anchor"></span>')
 
-        if st.button("Open uploaded image gallery", key="ia_open_gallery", use_container_width=True):
+        if st.button("View all", key="ia_open_gallery", use_container_width=False):
             st.session_state.ia_gallery_open = True
             _rerun()
     else:
@@ -1215,7 +1461,7 @@ def _recent_sample_items() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
 
 
 def _render_recent_samples() -> None:
-    _html('<div class="ia-samples-title">Recent Samples</div>')
+    _html('<div class="ia-samples-title">Recent Analyses</div>')
 
     visible, hidden = _recent_sample_items()
 
@@ -1321,7 +1567,13 @@ def _save_pending_to_recent(result: dict[str, Any]) -> None:
     if not st.session_state.ia_pending_images:
         return
 
-    risk_label = str(result.get("risk_level", "Uploaded"))
+    classification = str(result.get("classification", "Unknown"))
+    if classification == "Unrelated":
+        risk_label = "Not Relevant"
+    elif classification == "Non_Flood":
+        risk_label = "Low Risk"
+    else:
+        risk_label = str(result.get("risk_level", "Flood Detected"))
 
     new_items = []
 
@@ -1338,34 +1590,39 @@ def _save_pending_to_recent(result: dict[str, Any]) -> None:
 
 def _render_upload_area() -> None:
     analyze_clicked = False
+    remove_clicked = False
 
     with st.container(border=True):
         _html('<span class="ia-upload-card-marker"></span>')
 
-        uploaded_files = st.file_uploader(
-            label="Upload flood images",
-            type=["jpg", "jpeg", "png"],
-            accept_multiple_files=True,
-            label_visibility="collapsed",
-            key=f"flood_image_uploader_{st.session_state.ia_uploader_version}",
-        )
+        # Keep the uploader visible only before a file is selected. Once selected,
+        # the same card becomes a focused preview workspace.
+        if not st.session_state.ia_pending_images:
+            uploaded_file = st.file_uploader(
+                label="Upload a flood image",
+                type=["jpg", "jpeg", "png"],
+                accept_multiple_files=False,
+                label_visibility="collapsed",
+                key=f"flood_image_uploader_{st.session_state.ia_uploader_version}",
+            )
+            _add_new_upload(uploaded_file)
 
-        _add_new_uploads(uploaded_files or [])
         _render_upload_visual()
-        _render_remove_buttons()
 
-        _html('<span class="ia-analyze-anchor"></span>')
-        analyze_clicked = st.button(
-            "Analyze Image",
-            key="analyze_uploaded_image_button",
-            use_container_width=False,
-        )
+        if st.session_state.ia_pending_images:
+            remove_clicked, analyze_clicked = _render_selected_actions()
+
+    if remove_clicked:
+        st.session_state.ia_pending_images = []
+        st.session_state.ia_uploader_version += 1
+        _rerun()
 
     if analyze_clicked:
         uploads = _pending_to_upload_objects()
 
-        with st.spinner("Analyzing uploaded image(s) with FloodMind AI..."):
+        with st.spinner("Analyzing image with Mekhala AI..."):
             result = _run_image_analysis(uploads)
+            result["analyzed_images"] = [_bytes_to_data_uri(st.session_state.ia_pending_images[0]["data"], st.session_state.ia_pending_images[0]["type"])]
             st.session_state.image_analysis_result = result
             _save_pending_to_recent(result)
 
@@ -1374,71 +1631,122 @@ def _render_upload_area() -> None:
             _rerun()
 
 
+def _professional_actions(result: dict[str, Any]) -> list[dict[str, str]]:
+    """Return concise, class-appropriate guidance without claiming facts the classifier cannot measure."""
+    classification = str(result.get("classification", "Unknown"))
+    confidence = result.get("confidence")
+    confidence = float(confidence) if isinstance(confidence, (int, float)) else None
+
+    if classification == "Flood":
+        first_priority = "HIGH" if confidence is None or confidence >= 75 else "MEDIUM"
+        return [
+            {"title": "Avoid visible floodwater", "description": "Do not drive or walk through visibly flooded areas until local conditions are verified.", "priority": first_priority},
+            {"title": "Check official flood warnings", "description": "Review current local alerts and emergency guidance before travelling or changing routes.", "priority": "MEDIUM"},
+            {"title": "Reassess if conditions change", "description": "Upload a new field image if water levels, rainfall, or access conditions visibly change.", "priority": "MONITOR"},
+        ]
+    if classification == "Non_Flood":
+        return [
+            {"title": "Continue local monitoring", "description": "No flood was classified in this image; keep watching rainfall, drainage, and nearby water levels.", "priority": "MONITOR"},
+            {"title": "Check warnings before travel", "description": "Use current official alerts when conditions are changing; one image cannot confirm route safety.", "priority": "MEDIUM"},
+            {"title": "Reassess after visible change", "description": "Analyze a newer image if standing water, river level, or road conditions change.", "priority": "MONITOR"},
+        ]
+    if classification == "Unrelated":
+        return [
+            {"title": "Choose a flood-related scene", "description": "Upload a clear image of a road, street, river, drainage area, ground surface, or visible floodwater.", "priority": "INFO"},
+            {"title": "Keep the scene clearly visible", "description": "Use a well-lit image with enough surrounding context for the classifier to assess relevance.", "priority": "INFO"},
+        ]
+    return [
+        {"title": "Try another clear image", "description": "Use a well-lit field image with the scene unobstructed and in focus.", "priority": "INFO"},
+        {"title": "Recheck the image context", "description": "Include roads, ground, drainage, riverbanks, or visible water so the scene can be assessed.", "priority": "INFO"},
+    ]
+
+
 def _render_results(result: dict[str, Any]) -> None:
-    recommendation_items = "".join(
-        f"<li>{_safe(item)}</li>" for item in result.get("recommendations", [])
+    if int(result.get("uploaded_count", 0) or 0) == 0:
+        return
+
+    classification = str(result.get("classification", "Unknown"))
+    risk_level = str(result.get("risk_level", "Unable to Assess"))
+    confidence = result.get("confidence")
+    water = result.get("water_coverage")
+    road = result.get("road_impact")
+
+    if risk_level.lower() in {"high", "severe", "critical"}:
+        status_class = "ia-red"
+    elif risk_level.lower() in {"medium", "moderate"}:
+        status_class = "ia-yellow"
+    elif risk_level.lower() in {"low", "no flood"}:
+        status_class = "ia-green"
+    else:
+        status_class = "ia-neutral"
+
+    if classification == "Flood" and risk_level == "Flood Detected":
+        status_class = "ia-red"
+    elif classification == "Unrelated":
+        status_class = "ia-neutral"
+
+    detected = result.get("flood_detected", "Not assessed")
+    detected_class = "ia-red" if detected == "Yes" else "ia-green" if detected == "No" else "ia-neutral"
+    confidence_text = f"{int(confidence)}%" if isinstance(confidence, (int, float)) else "Not available"
+    water_text = f"{int(water)}%" if isinstance(water, (int, float)) else "Not available"
+    road_text = str(road) if road not in (None, "") else ("Potential" if classification == "Flood" else "Not indicated" if classification == "Non_Flood" else "Not assessed")
+
+    rows = [
+        ("Floodwater detected", str(detected), detected_class),
+        ("Assessment status", risk_level, status_class),
+        ("Model confidence", confidence_text, "ia-dark"),
+    ]
+    # Coverage is shown transparently: only a real backend value gets a percentage.
+    rows.append(("Estimated water coverage", water_text, "ia-dark" if water is not None else "ia-muted"))
+    rows.append(("Road / access impact", road_text, "ia-dark"))
+
+    condition_rows = "".join(
+        f'<div class="ia-condition-row"><span>{_safe(label)}</span><strong class="{cls}">{_safe(value)}</strong></div>'
+        for label, value, cls in rows
     )
 
-    flood_detected_class = "ia-green" if str(result.get("flood_detected", "")).lower() == "no" else "ia-red"
-    risk_level = str(result.get("risk_level", "High"))
-    risk_class = _risk_class(risk_level)
+    action_rows = []
+    for i, action in enumerate(_professional_actions(result), 1):
+        priority = action["priority"]
+        priority_class = {
+            "HIGH": "ia-action-high",
+            "MEDIUM": "ia-action-medium",
+            "MONITOR": "ia-action-monitor",
+            "ROUTINE": "ia-action-routine",
+        }.get(priority, "ia-action-info")
+        action_rows.append(
+            f'<div class="ia-action-row"><span class="ia-action-num">{i:02d}</span>'
+            f'<div class="ia-action-content"><div class="ia-action-title">{_safe(action["title"])}</div>'
+            f'<div class="ia-action-desc">{_safe(action["description"])}</div></div>'
+            f'<span class="ia-action-priority {priority_class}">{_safe(priority)}</span></div>'
+        )
+
+    analyzed_images = result.get("analyzed_images") or []
+    preview_html = (f'<div class="ia-result-preview"><img src="{_safe(analyzed_images[0])}" alt="Analyzed image"></div>' if analyzed_images else "")
 
     _html(
         '<div class="ia-section-title">Analysis Results</div>'
-        '<div class="ia-result-grid">'
-        '<div class="ia-result-card">'
-        '<h3>Quick Status</h3>'
-        f'<div class="ia-status-row"><span>Photos<br>Uploaded</span><span class="ia-dark">{int(result.get("uploaded_count", 0))}</span></div>'
-        f'<div class="ia-status-row"><span>Flood<br>Detected</span><span class="{flood_detected_class}">{_safe(result.get("flood_detected", "Yes"))}</span></div>'
-        f'<div class="ia-status-row"><span>Risk Level</span><span class="{risk_class}">{_safe(risk_level)}</span></div>'
-        f'<div class="ia-status-row"><span>Confidence</span><span class="ia-green">{_safe(result.get("confidence", 94))}%</span></div>'
+        '<div class="ia-assessment-banner">'
+        f'{preview_html}'
+        '<div><div class="ia-eyebrow">IMAGE ASSESSMENT</div>'
+        f'<div class="ia-assessment-title {status_class}">{_safe(risk_level)}</div>'
+        f'<div class="ia-assessment-copy">{_safe(result.get("context", ""))}</div></div>'
+        f'<div class="ia-metric"><strong>{_safe(confidence_text)}</strong><span>Confidence</span></div>'
         '</div>'
-        '<div class="ia-result-card">'
-        '<h3>What’s Happening</h3>'
-        f'<div class="ia-text">{_safe(result.get("context", ""))}</div>'
-        '<div class="ia-impact-pill">⚠️ <span>Road Impact</span></div>'
-        '</div>'
-        '<div class="ia-result-card">'
-        '<h3>What You Should Do</h3>'
-        f'<ul class="ia-list">{recommendation_items}</ul>'
-        '</div>'
-        '<div class="ia-result-card">'
-        '<h3>AI Info</h3>'
-        '<ul class="ia-list">'
-        f'<li>AI Model: {_safe(result.get("model", "ResNet-101"))}</li>'
-        f'<li>Accuracy: {_safe(result.get("accuracy", "96%"))}</li>'
-        f'<li>Data Analyzed: {_safe(result.get("data_analyzed", "250,000 images"))}</li>'
-        '</ul>'
-        '</div>'
-        '</div>'
+        '<div class="ia-prof-grid">'
+        '<div class="ia-prof-card"><h3>Detected Conditions</h3>'
+        f'{condition_rows}'
+        '<div class="ia-observation"><span>Observed condition</span>'
+        f'<p>{_safe(result.get("context", ""))}</p></div></div>'
+        '<div class="ia-prof-card"><h3>Recommended Actions</h3>'
+        f'{"".join(action_rows)}</div></div>'
+        '<div class="ia-result-note">Model confidence describes classification certainty. Measurements marked “Not available” were not produced by the current image classifier; no placeholder percentage is inserted.</div>'
     )
 
 
 def _render_accuracy_panel(result: dict[str, Any]) -> None:
-    try:
-        confidence = int(result.get("confidence", 94))
-    except Exception:
-        confidence = 94
-
-    confidence = max(0, min(100, confidence))
-    degree = confidence * 3.6
-
-    _html(
-        '<div class="ia-accuracy-panel">'
-        '<div>'
-        '<div class="ia-accuracy-title">How Accurate Is This?</div>'
-        '<div class="ia-accuracy-copy">'
-        'This AI checks images to tell the difference between road and floodwater with high accuracy.'
-        '</div>'
-        '</div>'
-        f'<div class="ia-confidence-ring" style="background: conic-gradient(#049b41 0deg {degree}deg, rgba(250,250,250,0.88) {degree}deg 360deg);">'
-        '<div class="ia-confidence-inner">'
-        f'<div class="ia-confidence-value">{confidence}%</div>'
-        '<div class="ia-confidence-label">Confidence</div>'
-        '</div>'
-        '</div>'
-        '</div>'
-    )
+    # Confidence is already presented in the assessment summary; avoid duplicate AI-info panels.
+    return
 
 
 def render_image_analysis() -> None:

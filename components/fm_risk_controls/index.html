@@ -239,7 +239,7 @@
 
       .fm-component-buttons {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(110px, .72fr) minmax(220px, 1.28fr);
         gap: 16px;
         margin-top: 14px;
         width: 100%;
@@ -258,23 +258,33 @@
       }
 
       .fm-reset-button {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        color: var(--navy);
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.52);
         box-shadow: none;
       }
 
       .fm-calculate-button {
-        color: var(--navy);
-        background: rgba(250, 250, 250, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.78);
-        box-shadow: 0 10px 22px rgba(0, 49, 82, 0.06);
+        color: var(--navy) !important;
+        background: rgba(255, 255, 255, 0.76) !important;
+        background-color: rgba(255, 255, 255, 0.76) !important;
+        border: 1px solid rgba(255, 255, 255, 0.78) !important;
+        box-shadow: none !important;
       }
 
-      .fm-component-button:hover {
+      .fm-reset-button:hover {
         transform: translateY(-1px);
-        background: rgba(250, 250, 250, 0.98);
+        background: rgba(255, 255, 255, 0.32);
         color: var(--navy);
+      }
+
+      .fm-calculate-button:hover {
+        transform: translateY(-1px);
+        background: #003152 !important;
+        background-color: #003152 !important;
+        border-color: #003152 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 16px rgba(0, 49, 82, 0.18) !important;
       }
 
       .fm-component-button:active {
@@ -509,8 +519,8 @@
         const buttonRow = document.createElement("div");
         buttonRow.className = "fm-component-buttons";
         buttonRow.innerHTML = `
-        <button type="button" class="fm-component-button fm-reset-button" id="fm-reset-button">Reset Values</button>
-        <button type="button" class="fm-component-button fm-calculate-button" id="fm-calculate-button">Calculate</button>
+        <button type="button" class="fm-component-button fm-reset-button" id="fm-reset-button">Reset</button>
+        <button type="button" class="fm-component-button fm-calculate-button" id="fm-calculate-button">Predict Flood Risk</button>
       `;
         root.appendChild(buttonRow);
 

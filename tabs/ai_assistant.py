@@ -1335,6 +1335,13 @@ def render_ai_assistant() -> None:
     _ensure_chat_state()
     _inject_chatbot_only_css()
 
+    context = st.session_state.get("assistant_context")
+    if context:
+        st.markdown(
+            f"""<div style="background:#F7FAFB;border:1px solid #DCE8ED;border-radius:14px;padding:14px 16px;margin:4px 0 14px;color:#244C60;font-size:12px;line-height:1.5"><b style="color:#082F49">Forecast context</b><br>{_safe(context)}</div>""",
+            unsafe_allow_html=True,
+        )
+
     has_messages = len(st.session_state.chat_messages) > 0
 
     if has_messages:

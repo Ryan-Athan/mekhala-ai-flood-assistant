@@ -999,6 +999,12 @@ def main() -> None:
     apply_existing_global_styles()
     inject_desktop_sidebar_css()
 
+    # IMPORTANT: inject the mobile-menu CSS before rendering its HTML.
+    # Streamlit reruns (for example after Regional Forecast -> Use This Location)
+    # can otherwise briefly paint the menu markup before the CSS arrives, which
+    # looks like raw <div> / <a> source code flashing above the page.
+    inject_mobile_css()
+
     active_page = get_active_page()
     render_mobile_menu(active_page)
 
@@ -1012,8 +1018,6 @@ def main() -> None:
         st.rerun()
 
     PAGE_OPTIONS[st.session_state.active_page]["renderer"]()
-
-    inject_mobile_css()
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+<style>
+:root{--navy:#003152;--muted:rgba(0,49,82,.68);--glass:rgba(255,255,255,.26);--border:rgba(255,255,255,.48);--white:rgba(255,255,255,.90);--accent:#34b9df}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:transparent;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--navy)}
+.wrap{width:100%;padding:2px 0 0}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}.heading{min-width:0}.title{font-size:18px;font-weight:900;line-height:1.15}.sub{font-size:12px;color:var(--muted);margin-top:3px}
+.search{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:8px;margin-bottom:10px}.input{width:100%;height:44px;border:1px solid var(--border);border-radius:11px;background:rgba(255,255,255,.30);color:var(--navy);padding:0 14px;font-size:14px;outline:none}.input:focus{background:rgba(255,255,255,.45);border-color:rgba(255,255,255,.82);box-shadow:0 0 0 2px rgba(52,185,223,.18)}
+button{height:44px;border:1px solid var(--border);border-radius:11px;background:rgba(255,255,255,.82);color:var(--navy);font-size:13px;font-weight:800;cursor:pointer}button:hover{background:#fff}.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.primary:hover{background:#074468}.primary:disabled{opacity:.45;cursor:not-allowed}
+.map-shell{position:relative;border:1px solid var(--border);border-radius:15px;overflow:hidden;background:rgba(255,255,255,.18);box-shadow:0 8px 28px rgba(0,49,82,.05)}#map{height:410px;width:100%}.leaflet-control-attribution{font-size:8px!important;opacity:.62}.leaflet-control-attribution a{color:#31566e!important}.leaflet-control-layers{border:0!important;border-radius:9px!important;box-shadow:0 2px 10px rgba(0,49,82,.14)!important}
+.status{position:absolute;left:12px;top:12px;z-index:500;background:rgba(255,255,255,.90);backdrop-filter:blur(8px);padding:7px 10px;border-radius:9px;font-size:11px;font-weight:750;box-shadow:0 2px 10px rgba(0,49,82,.12);max-width:70%}.status:empty{display:none}
+.selection{display:none;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;margin-top:10px;padding:12px 14px;border-radius:13px;background:rgba(255,255,255,.27);border:1px solid var(--border)}.selection.show{display:grid}.place{font-size:16px;font-weight:900}.detail{font-size:11px;color:var(--muted);margin-top:3px}.use{min-width:145px}
+.hint{font-size:11px;color:var(--muted);margin-top:7px;text-align:center}.error{display:none;margin-bottom:9px;padding:9px 11px;border-radius:10px;background:rgba(255,236,219,.72);font-size:12px;color:#7a4a16}.error.show{display:block}
+@media(max-width:700px){.top{align-items:flex-start}.sub{max-width:260px}.search{grid-template-columns:minmax(0,1fr) 112px}.search .find{grid-column:auto}.selection{grid-template-columns:1fr}.use{width:100%}#map{height:360px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="heading"><div class="title">Choose an area</div><div class="sub">Search or click the map. Mekhala detects the place automatically.</div></div></div>
+  <div class="search">
+    <input id="q" class="input" autocomplete="off" placeholder="Search city, township or region…" />
+    <button id="find" class="find" type="button">Find area</button>
+  </div>
+  <div id="error" class="error"></div>
+  <div class="map-shell"><div id="map"></div><div id="status" class="status"></div></div>
+  <div id="selection" class="selection">
+    <div><div id="place" class="place"></div><div id="detail" class="detail"></div></div>
+    <button id="use" class="primary use" type="button">Use this location</button>
+  </div>
+  <div class="hint">Tip: switch between Streets and Satellite from the map control.</div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+let map, marker, selected=null, initialized=false;
+function send(type,data={}){window.parent.postMessage({isStreamlitMessage:true,type,...data},"*")}
+function ready(){send("streamlit:componentReady",{apiVersion:1})}
+function height(){send("streamlit:setFrameHeight",{height:Math.ceil(document.documentElement.scrollHeight)+2})}
+function value(v){send("streamlit:setComponentValue",{value:v,dataType:"json"})}
+const $=id=>document.getElementById(id);
+function esc(v){return String(v||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+function showError(msg){$("error").textContent=msg||"";$("error").classList.toggle("show",!!msg);height()}
+function setStatus(msg){$("status").textContent=msg||""}
+function normalizeName(x){return (x||"").replace(/ Region$/i,"").trim()}
+function applySelection(s, fly=true){
+  if(!s||!Number.isFinite(+s.latitude)||!Number.isFinite(+s.longitude))return;
+  selected=s; const lat=+s.latitude, lon=+s.longitude;
+  if(!marker) marker=L.marker([lat,lon]).addTo(map); else marker.setLatLng([lat,lon]);
+  const place=s.short_name||s.city||s.name||"Selected area";
+  const bits=[]; [s.region,s.country].forEach(v=>{if(v&&normalizeName(v)!==normalizeName(place)&&!bits.includes(v))bits.push(v)});
+  $("place").textContent="📍 "+place; $("detail").textContent=bits.join(" · ")||s.name||"Location detected";
+  $("selection").classList.add("show"); if(fly) map.flyTo([lat,lon],Math.max(map.getZoom(),11),{duration:.55});
+  setStatus(""); showError(""); height();
+}
+async function searchPlace(){
+  const q=$("q").value.trim(); if(!q){showError("Enter a city, township or region name.");return}
+  showError(""); setStatus("Finding "+q+"…"); $("find").disabled=true;
+  try{
+    const aliases={"nay pyi taw":"Naypyidaw","naypyitaw":"Naypyidaw","nay pyi daw":"Naypyidaw","rangoon":"Yangon","pegu":"Bago"};
+    const term=aliases[q.toLowerCase()]||q;
+    const url="https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(term)+"&count=8&language=en&format=json";
+    const r=await fetch(url); if(!r.ok)throw new Error(); const j=await r.json(); let rows=j.results||[];
+    const mm=rows.filter(x=>(x.country_code||"").toUpperCase()==="MM"); if(mm.length)rows=mm;
+    if(!rows.length)throw new Error("notfound"); const x=rows[0];
+    applySelection({name:x.name,short_name:x.name,city:x.name,region:x.admin1||x.admin2||"",country:x.country||"Myanmar",latitude:+x.latitude,longitude:+x.longitude});
+  }catch(e){setStatus("");showError("Location not found. Try another spelling or click the place directly on the map.")}
+  finally{$("find").disabled=false}
+}
+async function identify(lat,lon){
+  setStatus("Identifying selected location…"); showError("");
+  try{
+    const u=`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}&localityLanguage=en`;
+    const r=await fetch(u); if(!r.ok)throw new Error(); const x=await r.json();
+    const city=x.locality||x.city||x.localityInfo?.administrative?.[3]?.name||x.localityInfo?.administrative?.[2]?.name||"Selected area";
+    const region=x.principalSubdivision||x.localityInfo?.administrative?.[1]?.name||"";
+    applySelection({name:city,short_name:city,city,region,country:x.countryName||"Myanmar",latitude:lat,longitude:lon},false);
+  }catch(e){
+    applySelection({name:"Selected area",short_name:"Selected area",city:"",region:"",country:"Myanmar",latitude:lat,longitude:lon},false);
+  }
+}
+function init(current){
+  if(initialized)return; initialized=true;
+  const lat=+(current.latitude||19.7633), lon=+(current.longitude||96.0785), has=!!current.latitude;
+  map=L.map("map",{zoomControl:true,attributionControl:true,preferCanvas:true}).setView([lat,lon],has?11:6);
+  map.attributionControl.setPrefix(false);
+  const streets=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"});
+  const satellite=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Imagery © Esri"});
+  const labels=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Labels © Esri",pane:"overlayPane",opacity:1});
+   const transport=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Roads © Esri",pane:"overlayPane",opacity:.95});
+  satellite.addTo(map); transport.addTo(map); labels.addTo(map);
+  L.control.layers({"Satellite":satellite,"Streets":streets},{"Roads":transport,"Place labels":labels},{position:"topright",collapsed:true}).addTo(map);
+  map.on("click",e=>{const {lat,lng}=e.latlng;if(!marker)marker=L.marker([lat,lng]).addTo(map);else marker.setLatLng([lat,lng]);identify(lat,lng)});
+  if(has)applySelection(current,false);
+  setTimeout(()=>{map.invalidateSize();height()},100);
+  $("find").addEventListener("click",searchPlace); $("q").addEventListener("keydown",e=>{if(e.key==="Enter")searchPlace()});
+  $("use").addEventListener("click",()=>{if(selected)value({...selected,action:"confirm"})});
+}
+window.addEventListener("message",e=>{const d=e.data;if(!d||d.type!=="streamlit:render")return;init((d.args&&d.args.current)||{})});
+ready();height();
+</script>
+</body>
+</html>
